@@ -302,15 +302,6 @@ p.forms2 {
 	line-height: .5cm;
 	text-indent: 1.5cm;
 }
-span.drawn {
-	color: #0000FF;
-}
-span.lost {
-	color: #FF0000;
-}
-span.won {
-	color: #28AA28;
-}
 span.prom {
 	color: #428F48;
 }
@@ -320,6 +311,10 @@ span.releg {
 span.alarm {
 	color: #FF0000;
 	font-size: 16pt;
+}
+span.hdr {
+	color: #0C0CDC;
+	font-size: large;
 }
 
 li.nav {
