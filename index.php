@@ -49,7 +49,7 @@ function checkform()
       alert("No email given");
       return false;
    }
-   if (form.recipient.selectedIndex <= 0)  {
+   if (form.recip.selectedIndex <= 0)  {
       alert("No recipient given");
       return  false;
    }
