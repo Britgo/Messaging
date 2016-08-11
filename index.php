@@ -60,7 +60,7 @@ function checkform()
 </tr>
 <tr>
    <td><b>To</b></td>
-   <select name="recip">
+   <td><select name="recip">
    <option value="">Select recipient</option>
 <?php
 $people = get_person_list();
