@@ -66,7 +66,7 @@ function checkform()
 $people = get_person_list();
 foreach ($people as $pers)
    print <<<EOT
-   <option value="Pers:{$person->formencode()}">{$person->display_name()}</option>
+   <option value="Pers:{$pers->formencode()}">{$pers->display_name()}</option>
 
 EOT;
 ?>
