@@ -117,7 +117,7 @@ class Person {
       $this->Mainalias = $row["mainalias"];
       $this->Email = $row["email"];
       $this->Gender = $row["gender"];
-      $this->Display = $row["isplay"];
+      $this->Display = $row["display"];
       return  $this;
    }
    
@@ -134,7 +134,7 @@ class Person {
       $this->Last = $row["last"];
       $this->Email = $row["email"];
       $this->Gender = $row["gender"];
-      $this->Display = $row["isplay"];
+      $this->Display = $row["display"];
       return  $this;
    }
    
