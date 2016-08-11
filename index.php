@@ -49,7 +49,9 @@ function checkform()
 }
 </script>
 <form name="mform" action="msgsend.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="javascript:return checkform();">
-<table>
+<table cellpadding="5" cellspacing="3" align="left" width="300">
+<tr><td><a href="https://www.britgo.org" title="Go to BGA main site"><img src="images/gohead12.gif" width="133" height="47" alt="BGA Logo" border="0" hspace="0" vspace="0"></a></td>
+<td>Send a message to BGA member</td>
 <tr>
    <td><b>From</td>
    <td><input type="text" name="from" size="30"></td>
@@ -74,7 +76,7 @@ EOT;
 </tr>
 <tr>
    <td><b>Subject</b></td>
-   <td><input type="text" name="subject" size="60"></td>
+   <td><input type="text" name="subject" size="40"></td>
 </tr>
 <tr>
    <td>&nbsp;</td><td><textarea name="mess" rows="10" cols="60"></textarea></td>
