@@ -73,11 +73,11 @@ EOT;
    </select></td>
 </tr>
 <tr>
-   <td>Subject</td>
+   <td><b>Subject</b></td>
    <td><input type="text" name="subject" size="60"></td>
 </tr>
 <tr>
-   <td colspan="2"><textarea name="mess" rows="10" cols="60"></textarea></td>
+   <td>&nbsp;</td><td><textarea name="mess" rows="10" cols="60"></textarea></td>
 </tr>
 <?php include 'php/sumchallenge.php' ?>
 <tr><td align="center"><input type="submit" name="sub" value="Submit"></td></tr>
