@@ -1,12 +1,13 @@
 c2e.convert_special: 0
 e2c.convert_num: 0
 openfiles: /home/jmc/src/Websites/messaging/php/head.php:801:0:0:
-openfiles: /home/jmc/src/Websites/messaging/index.php:1759:432:1:
+openfiles: /home/jmc/src/Websites/messaging/index.php:2542:1308:0:
 openfiles: /home/jmc/src/Websites/messaging/php/messerr.php:71:0:0:
-openfiles: /home/jmc/src/Websites/messaging/php/opendb.php:207:0:0:
-openfiles: /home/jmc/src/Websites/messaging/php/person.php:2764:1738:0:
-openfiles: /home/jmc/src/Websites/tournreg/clonetourn.php:0:3390:0:
+openfiles: /home/jmc/src/Websites/messaging/php/opendb.php:74:0:0:
+openfiles: /home/jmc/src/Websites/messaging/php/person.php:4525:3076:0:
 openfiles: /home/jmc/src/Websites/messaging/webfn.js:1371:0:0:
+openfiles: /home/jmc/src/Websites/tournreg/php/sumchallenge.php:1136:0:1:
+openfiles: /home/jmc/src/Websites/tournreg/createtourn.php:0:1953:0:
 snr_recursion_level: 5
 convertcolumn_horizontally: 0
 adv_open_matchname: 0
@@ -21,7 +22,7 @@ view_left_panel: 1
 default_mime_type: text/plain?php
 e2c.convert_xml: 1
 c2e.convert_iso: 0
-opendir: file:///home/jmc/src/Websites/messaging
+opendir: file:///home/jmc/src/Websites/tournreg
 wrap_text_default: 0
 bookmarks_filename_mode: 0
 snr_casesens: 0
@@ -51,12 +52,14 @@ recent_files: file:///home/jmc/src/Websites/tournreg/php/person.php
 recent_files: file:///home/jmc/src/Websites/tournreg/php/player.php
 recent_files: file:///home/jmc/src/Websites/tournreg/clonetourn.php
 recent_files: file:///home/jmc/src/Websites/messaging/webfn.js
+recent_files: file:///home/jmc/src/Websites/tournreg/php/sumchallenge.php
+recent_files: file:///home/jmc/src/Websites/tournreg/createtourn.php
 snr_replacetype: 0
 savedir: file:///home/jmc/src/Websites/messaging
 spell_check_default: 1
 spell_insert_entities: 0
 last_filefilter: 
-htmlbar_notebooktab: 7
+htmlbar_notebooktab: 1
 view_blockstack: 1
 snr_escape_chars: 0
 c2e.convert_symbol: 0
