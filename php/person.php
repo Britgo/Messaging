@@ -176,7 +176,7 @@ function get_person_list($incndisplay = false)  {
    while ($row = mysql_fetch_array($ret))
       array_push($result, new Person($row[0], $row[1]));
    foreach ($result as $p)
-      $p->fetchdetsname();
+      $p->fetchdetsfromname();
    return  $result;
 }
 
