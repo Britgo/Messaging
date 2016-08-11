@@ -41,9 +41,25 @@ include 'php/head.php';
 function checkform()
 {
    var form = document.mform;
-   if  (!okname(form.name.value))  {
-      alert("Invalid player name given");
+   if  (!okname(form.from.value))  {
+      alert("Invalid sender name given");
       return false;
+   }
+   if  (!nonblank(form.email.value)) {
+      alert("No email given");
+      return false;
+   }
+   if (form.recipient.selectedIndex <= 0)  {
+      alert("No recipient given");
+      return  false;
+   }
+   if  (!nonblank(form.subject.value))  {
+      alert("No subject");
+      return  false;
+   }
+   if  (!nonblank(form.mess.value))  {
+      alert("No message");
+      return  false;
    }
    return  true;
 }
