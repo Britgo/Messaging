@@ -26,7 +26,7 @@ include '../php/session.php';
 include '../php/opendb.php';
 include '../php/person.php';
 
-if  (!isset$_GET['uid']))  {
+if  (!isset($_GET['uid']))  {
    $Title = "No uid";
    include '../php/wrongentry.php';
    exit(0);
