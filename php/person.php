@@ -115,10 +115,10 @@ class Person {
       $ret = mysql_query("SELECT mainalias,email,gender,display FROM person WHERE {$this->queryofname()}");
       if (!$ret)  {
          $e = mysql_error();
-         throw Messerr("Could not fetch person record - $e");
+         throw new Messerr("Could not fetch person record - $e");
       }
       if  (mysql_num_rows($ret) == 0)
-         throw Messerr("No person found for {$this->First} {$this->Last}");
+         throw new Messerr("No person found for {$this->text_name()}");
       $row = mysql_fetch_assoc($ret);
       $this->Mainalias = $row["mainalias"];
       $this->Email = $row["email"];
@@ -131,10 +131,10 @@ class Person {
       $ret = mysql_query("SELECT first,last,email,gender,display FROM person WHERE {$this->queryofalias()}");
       if (!$ret)  {
          $e = mysql_error();
-         throw Messerr("Could not fetch person record - $e");
+         throw new Messerr("Could not fetch person record - $e");
       }
       if  (mysql_num_rows($ret) == 0)
-         throw Messerr("No person found for {$this->First} {$this->Last}");
+         throw new Messerr("No person found for {$this->First} {$this->Last}");
       $row = mysql_fetch_assoc($ret);
       $this->First = $row["first"];
       $this->Last = $row["last"];
@@ -153,7 +153,7 @@ class Person {
       $ret = mysql_query("INSERT INTO person (first,last,mainalias,email,gender,display) VALUES ('$qfirst','$qlast','$qmainalias','$qgender',$qdisplay)");
       if (!$ret)  {
          $e = mysql_error();
-         throw Messerr("Could not create person record - $e");
+         throw new Messerr("Could not create person record - $e");
       }
       return $this;
    }
@@ -180,7 +180,7 @@ function get_person_list($incndisplay = false)  {
    $ret = mysql_query("SELECT first,last FROM person$wh ORDER BY last,first");
    if (!$ret)  {
       $e = mysql_error();
-      throw Messerr("Could not search records - $e");
+      throw new Messerr("Could not search records - $e");
    }
    $result = array();
    while ($row = mysql_fetch_array($ret))
