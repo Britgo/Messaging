@@ -36,7 +36,7 @@ catch (Messerr $e) {
 }
 
 $quserid = mysql_real_escape_string($userid);
-$ret = mysql_query("select mainalias,password from user where mainalias='$quserid'");
+$ret = mysql_query("select mainalias,password from logins where mainalias='$quserid'");
 
 // Check user known
 
