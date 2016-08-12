@@ -58,7 +58,7 @@ if (count($rpieces) != 2)  {
 }
 
 $rtype = $rpieces[0];
-$rto = $rpieces[1];
+$rto = urldecode($rpieces[1]);
 
 switch  ($rtype)  {
    default:
@@ -74,7 +74,7 @@ switch  ($rtype)  {
          break;
       }
       catch  (Messerr $e)  {
-         $mess = "Error finding person $rto - $e->getMessage()";
+         $mess = "Error finding person $rto - {$e->getMessage()}";
          include 'php/wrongentry.php';
          exit(0);
       }
