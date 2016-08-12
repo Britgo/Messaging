@@ -70,7 +70,7 @@ switch  ($rtype)  {
       $dest = $rto;
       try  {
          $pto = new Person($rto);
-         $sending_to = $pto->fetchdatsfromname()->Email;
+         $sending_to = $pto->fetchdetsfromname()->Email;
          break;
       }
       catch  (Messerr $e)  {
