@@ -52,10 +52,16 @@ class Person {
 		}
 	}
 
-	public function __construct($f = "", $l = "") {
-	   $this->parsename($f, $l);
-		$this->Mainalias = "";
-		$this->Email = "";
+	public function __construct($f = "", $l = "", $isalias = false) {
+      if  ($isalias)  {
+         $this->Mainalias = $f;
+         $this->First = $this->Last = "";
+      }
+      else  { 
+         $this->parsename($f, $l);
+         $this->Mainalias = "";
+      }
+      $this->Email = "";
 		$this->Gender = 'M';        // Not sexist most are.
 		$this->Display = false;
 	}
@@ -121,7 +127,7 @@ class Person {
       return  $this;
    }
    
-   public function fetchdetsfromnalias()  {
+   public function fetchdetsfromalias()  {
       $ret = mysql_query("SELECT first,last,email,gender,display FROM person WHERE {$this->queryofalias()}");
       if (!$ret)  {
          $e = mysql_error();
