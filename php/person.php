@@ -78,7 +78,7 @@ class Person {
 	
 	public function queryofalias()  {
 	   $qid = mysql_real_escape_string($this->Mainalias);
-	   return "mainalias='$qid";
+	   return "mainalias='$qid'";
 	}
 	
 	public function urlofname() {
