@@ -31,9 +31,10 @@ if  (!isset($_GET['uid']))  {
    include '../php/wrongentry.php';
    exit(0);
 }
+$userid = $_GET['uid'];
 try {
 	opendb();
-	$pers = new Person($_GET['uid'], "", true);
+	$pers = new Person($userid, "", true);
 	$pers->fetchdetsfromalias();
 }
 catch (Messerr $e) {
