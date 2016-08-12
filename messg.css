@@ -257,8 +257,7 @@ body {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	overflow: hidden;
-	font: sans-serif;
+	overflow: auto;
 }
 
 #Nav {
@@ -271,13 +270,15 @@ body {
     border-bottom-color: #000080;
 }
 #Content {
-    position: fixed;
-    top: 150px;
-    left: 0;
-    height: auto;
-    width: 100%;
-    overflow: auto;
+	position: fixed;
+	top: 150px;
+	left: 0;
+	width: 100%;
+	overflow: auto;
+	bottom: 0;
+	right: 0;
 }
+
 .innertube {
 	margin: 10px;
 }

@@ -23,6 +23,7 @@ include 'php/messerr.php';
 include 'php/opendb.php';
 include 'php/person.php';
 include 'php/role.php';
+include 'php/mailing.php';
 
 try {
    opendb();
@@ -92,6 +93,12 @@ $roles = Role::get_roles_list();
 foreach ($roles as $rl)
    print <<<EOT
    <option value="Roles:{$rl->formencode()}">{$rl->display_name()}</option>
+
+EOT;
+$mailings = Mailing::get_mailings_list();
+foreach ($mailings as $m)
+print <<<EOT
+   <option value="Mailings:{$m->formencode()}">{$m->display_description()}</option>
 
 EOT;
 ?>

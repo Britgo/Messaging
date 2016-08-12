@@ -1,15 +1,15 @@
 c2e.convert_special: 0
 e2c.convert_num: 0
 openfiles: /home/jmc/src/Websites/messaging/php/head.php:801:0:0:
-openfiles: /home/jmc/src/Websites/messaging/index.php:2878:1597:0:
+openfiles: /home/jmc/src/Websites/messaging/index.php:1123:1848:0:
 openfiles: /home/jmc/src/Websites/messaging/php/messerr.php:71:0:0:
 openfiles: /home/jmc/src/Websites/messaging/php/opendb.php:74:0:0:
-openfiles: /home/jmc/src/Websites/messaging/php/person.php:3880:2773:0:
+openfiles: /home/jmc/src/Websites/messaging/php/person.php:5259:3844:0:
 openfiles: /home/jmc/src/Websites/messaging/webfn.js:1371:0:0:
 openfiles: /home/jmc/src/Websites/tournreg/createtourn.php:0:1953:0:
 openfiles: /home/jmc/src/Websites/messaging/php/sumchallenge.php:1342:0:0:
-openfiles: /home/jmc/src/Websites/messaging/messg.css:4537:4169:0:
-openfiles: /home/jmc/src/Websites/messaging/php/role.php:2273:1745:1:
+openfiles: /home/jmc/src/Websites/messaging/messg.css:3754:3338:1:
+openfiles: /home/jmc/src/Websites/messaging/php/role.php:2394:2005:0:
 snr_recursion_level: 5
 convertcolumn_horizontally: 0
 adv_open_matchname: 0
@@ -63,7 +63,7 @@ savedir: file:///home/jmc/src/Websites/messaging/php
 spell_check_default: 1
 spell_insert_entities: 0
 last_filefilter: 
-htmlbar_notebooktab: 1
+htmlbar_notebooktab: 6
 view_blockstack: 1
 snr_escape_chars: 0
 c2e.convert_symbol: 0

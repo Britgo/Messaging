@@ -93,7 +93,7 @@ class Role {
       }
       return  $result;
 	}
-   
+
    public static function get_next_ordering()  {
       $ret = mysql_query("SELECT MAX(ordering) from roles");
       if  (!$ret)  {
