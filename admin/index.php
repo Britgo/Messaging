@@ -22,7 +22,7 @@
 include '../php/session.php';
 include '../php/messerr.php';
 
-if ($islogged)  {
+if ($islogged_in)  {
    $Title = "Mailing System Administration";
    include '../php/head.php';
    print <<<EOT
