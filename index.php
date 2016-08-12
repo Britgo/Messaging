@@ -145,7 +145,7 @@ EOT;
 $mailings = Mailing::get_mailings_list();
 foreach ($mailings as $m)  {
    $chk = "";
-   if ($rl->is_same($gmailing))
+   if ($m->is_same($gmailing))
       $chk = ' selected="selected"';
    print <<<EOT
    <option value="Mailings:{$m->formencode()}"$chk>{$m->display_description()}</option>
