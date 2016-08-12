@@ -118,7 +118,7 @@ fwrite($fh, $message);
 if  (strlen($capac) != 0)  {
    $message = <<<EOT
 
-This message was sent to you $capac.
+This message was sent to you: $capac.
 
 
 EOT;

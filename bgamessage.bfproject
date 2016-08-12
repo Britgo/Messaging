@@ -4,10 +4,10 @@ openfiles: /home/jmc/src/Websites/messaging/php/head.php:801:0:0:
 openfiles: /home/jmc/src/Websites/messaging/index.php:1800:2012:0:
 openfiles: /home/jmc/src/Websites/messaging/php/messerr.php:71:0:0:
 openfiles: /home/jmc/src/Websites/messaging/php/opendb.php:74:0:0:
-openfiles: /home/jmc/src/Websites/messaging/php/person.php:5301:4050:0:
+openfiles: /home/jmc/src/Websites/messaging/php/person.php:4489:3281:0:
 openfiles: /home/jmc/src/Websites/tournreg/createtourn.php:0:1953:0:
 openfiles: /home/jmc/src/Websites/tournreg/php/newaccemail.php:1558:0:0:
-openfiles: /home/jmc/src/Websites/messaging/msgsend.php:4036:3153:1:
+openfiles: /home/jmc/src/Websites/messaging/msgsend.php:3467:2516:1:
 openfiles: /home/jmc/src/Websites/messaging/php/role.php:2379:1594:0:
 openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:1507:1083:0:
 snr_recursion_level: 5
@@ -27,6 +27,7 @@ c2e.convert_iso: 0
 opendir: file:///home/jmc/src/Websites/messaging/php
 wrap_text_default: 0
 bookmarks_filename_mode: 0
+ssearch_text: Messerr
 snr_casesens: 0
 view_blocks: 1
 name: BGA Messaging
@@ -65,7 +66,7 @@ recent_files: file:///home/jmc/src/Websites/tournreg/upddescr2.php
 recent_files: file:///home/jmc/src/Websites/messaging/php/role.php
 recent_files: file:///home/jmc/src/Websites/messaging/php/mailing.php
 snr_replacetype: 0
-savedir: file:///home/jmc/src/Websites/messaging/php
+savedir: file:///home/jmc/src/Websites/messaging
 spell_check_default: 1
 spell_insert_entities: 0
 last_filefilter: 
@@ -75,6 +76,7 @@ snr_escape_chars: 0
 c2e.convert_symbol: 0
 spell_lang: en_ZA
 ssearch_dotmatchall: 0
+searchlist: Messerr
 autocomplete: 1
 outputb_show_all_output: 0
 bookmarks_show_mode: 0
