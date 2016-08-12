@@ -109,7 +109,7 @@ switch  ($rtype)  {
 
 //  Send the message
 
-$fh = popen("REPLYTO='$semail' mail -s '$subj' $sending_to", "w");
+$fh = popen("REPLYTO=$semail mail -s '$subj' $sending_to", "w");
 $message = <<<EOT
 $from (email $semail) has sent you a message using the online message system.
 
