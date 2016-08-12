@@ -22,7 +22,7 @@
 include '../php/session.php';
 include '../php/messerr.php';
 
-if ($islogged_in)  {
+if ($logged_in)  {
    $Title = "Mailing System Administration";
    include '../php/head.php';
    print <<<EOT
@@ -35,6 +35,7 @@ if ($islogged_in)  {
 <li><a href="/admin/roles.php">Click here for the list of roles in the system.</a>
 <li><a href="/admin/roles.php">Click here for the list of mailing lists in the system.</a>
 <li><a href="/admin/admins.php">Click here to update the list of administrators.</li>
+<li><a href="/admin/logout.php">Log out</a>.</li>
 </ol>
 
 EOT;
