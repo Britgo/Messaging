@@ -68,6 +68,10 @@ class Role {
 	   return $this;
 	}
 	
+	public function text_name() {
+	   return  $this->Rolename;
+	}
+	
 	public function display_name() {
  		return  htmlspecialchars($this->Rolename);
  	}

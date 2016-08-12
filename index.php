@@ -112,8 +112,8 @@ EOT;
    <td>&nbsp;</td><td><textarea name="mess" rows="10" cols="60"></textarea></td>
 </tr>
 <tr>
-   <td><b>Send me a copy of this message</b></td>
    <td><input type="checkbox" name="sendme" value="sendme" checked="checked"></td>
+   <td><b>Send me a copy of this message</b></td>
 </tr>
 <?php include 'php/sumchallenge.php' ?>
 <tr><td align="center"><input type="submit" name="sub" value="Submit"></td></tr>

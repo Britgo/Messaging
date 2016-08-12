@@ -55,10 +55,18 @@ class Mailing {
       return  $this;
 	}
 	
+	public function text_name() {
+	   return  $this->Name;
+	}
+	
 	public function display_name() {
  		return  htmlspecialchars($this->Name);
  	}
  	
+ 	public function text_description() {
+      return  $this->Description;	
+ 	}
+
  	public function display_description() {
  		return  htmlspecialchars($this->Description);
  	}

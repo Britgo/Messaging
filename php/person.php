@@ -158,10 +158,14 @@ class Person {
       return $this;
    }
   
+   public function text_name()  {
+      if  ($this->Last == '_')
+			return  $this->First;
+ 		return  $this->First . ' ' . $this->Last;
+   }
+   
 	public function display_name() {
-		if  ($this->Last == '_')
-			return  htmlspecialchars($this->First);
- 		return  htmlspecialchars($this->First . ' ' . $this->Last);
+		return  htmlspecialchars($this->text_name());
  	}
  	
  	public function is_same($pl) {
