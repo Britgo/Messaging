@@ -133,7 +133,7 @@ foreach ($people as $pers) {
 EOT;
 }
 ?>
-<option disabled>------/option>
+<option disabled>------</option>
 <?php
 $roles = Role::get_roles_list();
 foreach ($roles as $rl)  {
@@ -146,7 +146,7 @@ foreach ($roles as $rl)  {
 EOT;
 }
 ?>
-<option disabled>------/option>
+<option disabled>------</option>
 <?php
 $mailings = Mailing::get_mailings_list();
 foreach ($mailings as $m)  {
