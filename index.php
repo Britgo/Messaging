@@ -20,6 +20,7 @@
 //   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 include 'php/messerr.php';
+include 'php/session.php';
 include 'php/opendb.php';
 include 'php/person.php';
 include 'php/role.php';
@@ -111,7 +112,7 @@ function checkform()
 <td><span class="hdr">Send a message to BGA member(s)</span></td>
 <tr>
    <td><b>From</td>
-   <td><input type="text" name="from" size="30"></td>
+   <td><?php print "<input type=\"text\" name=\"from\" size=\"30\" value=\"$username\">"; ?></td>
 </tr>
 <tr>
    <td><b>Email</td>
