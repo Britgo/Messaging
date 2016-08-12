@@ -22,6 +22,7 @@
 include 'php/messerr.php';
 include 'php/opendb.php';
 include 'php/person.php';
+include 'php/role.php';
 
 try {
    opendb();
