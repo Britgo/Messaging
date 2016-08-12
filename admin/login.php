@@ -65,7 +65,7 @@ EOT;
 
 try {
    $upers = new Person($userid, "", true);
-   $upers->fetchdetsfromnalias();
+   $upers->fetchdetsfromalias();
    $username = $upers->text_name();   
 }
 catch (Messerr $e)  {
