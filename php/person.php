@@ -169,7 +169,7 @@ class Person {
  	}
  	
  	public function is_same($pl) {
-		return $this->First == $pl->First && $this->Last == $pl->Last;
+		return  strcasecmp($this->First, $pl->First) == 0  && strcasecmp($this->Last, $pl->Last) == 0;
 	}
 }
 

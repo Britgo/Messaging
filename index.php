@@ -34,6 +34,45 @@ catch (Messerr $e) {
    exit(0);
 }
 
+$gperson = $grole = $gmailing = null;
+
+if (isset($_GET['person']))  {
+   try  {
+      $gperson = new Person($_GET['person']);
+      $gperson->fetchdetsfromname();
+   }
+   catch (Messerr $e)  {
+      $gperson = null;
+   }
+}
+
+if (!$gperson && isset($_GET['role']))  {
+   try  {
+      $grole = new Role($_GET['role']);
+      $grole->fetchalias();
+   }
+   catch (Messerr $e)  {
+      $grole = null;
+   }
+}
+
+if (!$grole && isset($_GET['mailing']))  {
+   try  {
+      $gmailing = new Mailing($_GET['mailing']);
+      $gmailing->fetchdescr();
+   }
+   catch (Messerr $e)  {
+      $gmailing = null;
+   }
+}
+
+if (!$gperson)
+   $gperson = new Person('*', '*');
+if  (!$grole)
+   $grole = new Role('(');
+if  (!$gmailing)
+   $gmailing = new Mailing('(');
+
 $Title = 'BGA Messaging Create Message';
 include 'php/head.php';
 ?>
@@ -84,23 +123,35 @@ function checkform()
    <option value="">Select recipient</option>
 <?php
 $people = get_person_list();
-foreach ($people as $pers)
+foreach ($people as $pers) {
+   $chk = "";
+   if ($pers->is_same($gperson))
+      $chk = ' selected="selected"';
    print <<<EOT
-   <option value="Pers:{$pers->formencode()}">{$pers->display_name()}</option>
+   <option value="Pers:{$pers->formencode()}"$chk>{$pers->display_name()}</option>
 
 EOT;
+}
 $roles = Role::get_roles_list();
-foreach ($roles as $rl)
+foreach ($roles as $rl)  {
+   $chk = "";
+   if ($rl->is_same($grole))
+      $chk = ' selected="selected"';
    print <<<EOT
-   <option value="Roles:{$rl->formencode()}">{$rl->display_name()}</option>
+   <option value="Roles:{$rl->formencode()}"$chk>{$rl->display_name()}</option>
 
 EOT;
+}
 $mailings = Mailing::get_mailings_list();
-foreach ($mailings as $m)
-print <<<EOT
-   <option value="Mailings:{$m->formencode()}">{$m->display_description()}</option>
+foreach ($mailings as $m)  {
+   $chk = "";
+   if ($rl->is_same($gmailing))
+      $chk = ' selected="selected"';
+   print <<<EOT
+   <option value="Mailings:{$m->formencode()}"$chk>{$m->display_description()}</option>
 
 EOT;
+}
 ?>
    </select></td>
 </tr>

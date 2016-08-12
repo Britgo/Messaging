@@ -38,6 +38,10 @@ class Mailing {
 	   return "name='$qname'";
 	}
 	
+	public function is_same($rl) {
+		return strcasecmp($this->Name, $rl->Name) == 0;
+	}
+	
 	public function formencode() {
       return urlencode($this->Name);
    }

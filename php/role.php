@@ -37,6 +37,10 @@ class Role {
 		return  strlen($this->Rolename) != 0  &&  strlen($this->Aliasname) != 0;
 	}
 	
+	public function is_same($rl) {
+		return strcasecmp($this->Rolename, $rl->Rolename) == 0;
+	}
+	
 	public function queryof() {
 	   $qname = mysql_real_escape_string($this->Rolename);
 	   return "role='$qname'";
