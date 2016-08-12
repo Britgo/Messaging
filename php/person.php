@@ -171,6 +171,15 @@ class Person {
  	public function is_same($pl) {
 		return  strcasecmp($this->First, $pl->First) == 0  && strcasecmp($this->Last, $pl->Last) == 0;
 	}
+	
+	public function get_passwd() {
+	   $qid = mysql_real_escape_string($this->Mainalias);
+	   $ret = mysql_query("SELECT password FROM logins WHERE mainalias='$qid'");
+	   if (!$ret || mysql_num_rows($ret) == 0)
+	     return  "";
+	   $row = mysql_fetch_array($ret);
+	   return $row[0];
+	}
 }
 
 function get_person_list($incndisplay = false)  {
