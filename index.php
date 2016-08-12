@@ -58,8 +58,8 @@ if (!$gperson && isset($_GET['role']))  {
 
 if (!$grole && isset($_GET['mailing']))  {
    try  {
-      $gmailing = new Mailing($_GET['mailing']);
-      $gmailing->fetchdescr();
+      $gmailing = new Mailing();    // Don't do the whole lot because we only use the description
+      $gmailing->Description = $_GET['mailing'];
    }
    catch (Messerr $e)  {
       $gmailing = null;
@@ -69,9 +69,9 @@ if (!$grole && isset($_GET['mailing']))  {
 if (!$gperson)
    $gperson = new Person('*', '*');
 if  (!$grole)
-   $grole = new Role('(');
+   $grole = new Role('*');
 if  (!$gmailing)
-   $gmailing = new Mailing('(');
+   $gmailing = new Mailing('*');
 
 $Title = 'BGA Messaging Create Message';
 include 'php/head.php';

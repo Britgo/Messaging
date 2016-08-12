@@ -50,10 +50,10 @@ class Mailing {
 	   $ret = mysql_query("SELECT description FROM mailings WHERE {$this->queryof()}");
 	   if  (!$ret)  {
          $e = mysql_error();
-         throw Messerr("Could not fetch mailing - $e");
+         throw new Messerr("Could not fetch mailing - $e");
       }
       if (mysql_num_rows($ret) == 0)
-         throw Messerr("Could not find mailing {$this->Name}");
+         throw new Messerr("Could not find mailing {$this->Name}");
       $row = mysql_fetch_assoc($ret);
       $this->Description= $row['description'];
       return  $this;
@@ -79,7 +79,7 @@ class Mailing {
 	   $ret = mysql_query("SELECT name,description FROM mailings ORDER BY description");
 	   if  (!$ret)  {
          $e = mysql_error();
-         throw Messerr("Could not fetch mailings - $e");
+         throw new Messerr("Could not fetch mailings - $e");
       }
       $result = array();
       while ($row = mysql_fetch_assoc($ret))  {
