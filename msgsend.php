@@ -83,11 +83,11 @@ switch  ($rtype)  {
       $dest = "The BGA $rto";
       try  {
          $roleto = new Role($rto);
-         $roleto->fatchalias()->fetchperson();
-         $sending_to = $roleto->Email;       
+         $sending_to = $roleto->fetchalias()->fetchperson()->get_email();
+         break;    
       }
       catch  (Messerr $e)  {
-         $mess = "Error finding role - $e->getMessage()";
+         $mess = "Error finding role - {$e->getMessage()}";
          include 'php/wrongentry.php';
          exit(0);
       }
@@ -98,13 +98,13 @@ switch  ($rtype)  {
          $mto->fetchdescr();
          $capac = "As you are a member of the {$mto->text_description()}";
          $dest = "The BGA {$mto->text_description()}";
+         break;
       }
       catch  (Messerr $e)  {
-         $mess = "Error finding mailing list - $e->getMessage()";
+         $mess = "Error finding mailing list - {$e->getMessage()}";
          include 'php/wrongentry.php';
          exit(0);
       }
-      break;
 }
 
 //  Send the message

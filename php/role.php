@@ -75,6 +75,10 @@ class Role {
 	public function display_name() {
  		return  htmlspecialchars($this->Rolename);
  	}
+ 	
+ 	public function get_email() {
+ 	   return $this->Aliasperson->Email;
+ 	}
 	
 	public static function get_roles_list($aliasdict = null) {
 	   $ret = mysql_query("SELECT role,mainalias,ordering FROM roles ORDER BY ordering");
