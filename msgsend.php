@@ -32,7 +32,7 @@ if (!isset($_POST['from']) || !isset($_POST['email']) || !isset($_POST['recip'])
    exit(0);
 }
 
-include 'php/sumcheck.php';
+include 'php/checksum.php';
 
 $from = $_POST['from'];
 $semail = $_POST['email'];
@@ -74,7 +74,7 @@ switch  ($rtype)  {
          break;
       }
       catch  (Messerr $e)  {
-         $mess = "Error finding person - $e->getMessage()";
+         $mess = "Error finding person $rto - $e->getMessage()";
          include 'php/wrongentry.php';
          exit(0);
       }
@@ -97,7 +97,7 @@ switch  ($rtype)  {
          $mto = new Mailing($rto);
          $mto->fetchdescr();
          $capac = "As you are a member of the {$mto->text_description()}";
-         $dest = "The BGA $mto->text_description()}";
+         $dest = "The BGA {$mto->text_description()}";
       }
       catch  (Messerr $e)  {
          $mess = "Error finding mailing list - $e->getMessage()";
@@ -131,7 +131,7 @@ The text of the message reads:
 $mess
 
 EOT;
-fwrite($th, $message);
+fwrite($fh, $message);
 pclose($fh);
 
 if ($copyme)  {
