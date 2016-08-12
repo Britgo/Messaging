@@ -26,12 +26,17 @@ include '../php/session.php';
 include '../php/opendb.php';
 include '../php/person.php';
 
+if  (!isset$_GET['uid']))  {
+   $Title = "No uid";
+   include '../php/wrongentry.php';
+   exit(0);
+}
 try {
 	opendb();
-	$pers = new Person($userid, "", true);
+	$pers = new Person($_GET['uid'], "", true);
 	$pers->fetchdetsfromalias();
 }
-catch (Messrr $e) {
+catch (Messerr $e) {
 	$mess = $e->getMessage();
 	include 'php/wrongentry.php';
 	exit(0);
