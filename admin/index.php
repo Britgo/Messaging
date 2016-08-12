@@ -19,34 +19,34 @@
 //   You should have received a copy of the GNU General Public License
 //   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-include 'php/session.php';
-include 'php/messerr.php';
+include '/php/session.php';
+include '/php/messerr.php';
 
 if ($islogged)  {
    $Title = "Mailing System Administration";
-   include 'php/head.php';
+   include '/php/head.php';
    print <<<EOT
 <body>
 <h1>Mailing System Administration</h1>
 <p>Please select one of the following options.</p>
 <ol>
-<li><a href="admin/prefs.php">Click here to update personal preferences.</a></li>
-<li><a href="admin/people.php">Click here for the list of people to include in the system.</a>
-<li><a href="admin/roles.php">Click here for the list of roles in the system.</a>
-<li><a href="admin/roles.php">Click here for the list of mailing lists in the system.</a>
-<li><a href="admin/admins.php">Click here to update the list of administrators.</li>
+<li><a href="/admin/prefs.php">Click here to update personal preferences.</a></li>
+<li><a href="/admin/people.php">Click here for the list of people to include in the system.</a>
+<li><a href="/admin/roles.php">Click here for the list of roles in the system.</a>
+<li><a href="/admin/roles.php">Click here for the list of mailing lists in the system.</a>
+<li><a href="/admin/admins.php">Click here to update the list of administrators.</li>
 </ol>
 
 EOT;
 }
 else  {
    $Title = "You need to log in";
-   include 'php/head.php';
+   include '/php/head.php';
    print <<<EOT
 <body>
 <script language="javascript" src="webfn.js"></script>
 <h1>Mailing System Administration login</h1>
-<form name="lifm" action="login.php" method="post" enctype="application/x-www-form-urlencoded">
+<form name="lifm" action="/action/login.php" method="post" enctype="application/x-www-form-urlencoded">
 
 <p>Please log in with your user name <input type="text" name="user_id" id="user_id" size="10">
 and password <input type="password" name="passwd" size="10"> and press <input type="submit" value="Login">.</p>
