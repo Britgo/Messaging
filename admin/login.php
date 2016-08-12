@@ -69,7 +69,7 @@ try {
    $username = $upers->text_name();   
 }
 catch (Messerr $e)  {
-   $mess = "Unknown User";
+   $mess = "Unknown User - {$e->getMessage()}";
    include '../php/wrongentry.php';
    exit(0);
 }
