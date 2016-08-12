@@ -45,7 +45,7 @@ else  {
    include '../php/head.php';
    print <<<EOT
 <body>
-<script language="javascript" src="webfn.js"></script>
+<script language="javascript" src="/webfn.js"></script>
 <h1>Mailing System Administration login</h1>
 <form name="lifm" action="login.php" method="post" enctype="application/x-www-form-urlencoded">
 
