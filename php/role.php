@@ -85,7 +85,7 @@ class Role {
          $r->Ordering = $row['ordering'];
          array_push($result, $r);
       }
-      if  (!isnull($aliasdict))  {
+      if  (!is_null($aliasdict))  {
          foreach ($result as $r)  {
             if  (isset($aliasdict[$r->Aliasname]))
                $r->Aliasperson = $aliasdict[$r->Aliasname];
