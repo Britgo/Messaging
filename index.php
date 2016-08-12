@@ -132,6 +132,9 @@ foreach ($people as $pers) {
 
 EOT;
 }
+?>
+<option disabled>------/option>
+<?php
 $roles = Role::get_roles_list();
 foreach ($roles as $rl)  {
    $chk = "";
@@ -142,6 +145,9 @@ foreach ($roles as $rl)  {
 
 EOT;
 }
+?>
+<option disabled>------/option>
+<?php
 $mailings = Mailing::get_mailings_list();
 foreach ($mailings as $m)  {
    $chk = "";
