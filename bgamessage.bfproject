@@ -1,14 +1,14 @@
 c2e.convert_special: 0
 e2c.convert_num: 0
 openfiles: /home/jmc/src/Websites/messaging/php/head.php:801:0:0:
-openfiles: /home/jmc/src/Websites/messaging/index.php:1328:357:1:
+openfiles: /home/jmc/src/Websites/messaging/index.php:4085:3556:0:
 openfiles: /home/jmc/src/Websites/messaging/php/messerr.php:71:0:0:
 openfiles: /home/jmc/src/Websites/messaging/php/opendb.php:74:0:0:
-openfiles: /home/jmc/src/Websites/messaging/php/person.php:5467:4387:0:
+openfiles: /home/jmc/src/Websites/messaging/php/person.php:5436:4755:0:
 openfiles: /home/jmc/src/Websites/tournreg/createtourn.php:0:1953:0:
 openfiles: /home/jmc/src/Websites/messaging/msgsend.php:3201:874:0:
-openfiles: /home/jmc/src/Websites/messaging/php/role.php:1488:1123:0:
-openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:1488:1021:0:
+openfiles: /home/jmc/src/Websites/messaging/php/role.php:3134:1102:0:
+openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:1491:1021:1:
 snr_recursion_level: 5
 convertcolumn_horizontally: 0
 adv_open_matchname: 0
@@ -65,7 +65,7 @@ recent_files: file:///home/jmc/src/Websites/tournreg/upddescr2.php
 recent_files: file:///home/jmc/src/Websites/messaging/php/role.php
 recent_files: file:///home/jmc/src/Websites/messaging/php/mailing.php
 snr_replacetype: 0
-savedir: file:///home/jmc/src/Websites/messaging/php
+savedir: file:///home/jmc/src/Websites/messaging
 spell_check_default: 1
 spell_insert_entities: 0
 last_filefilter: 
