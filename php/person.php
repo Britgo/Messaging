@@ -148,15 +148,27 @@ class Person {
    public function  create()  {
       $qfirst = mysql_real_escape_string($this->First);
       $qlast = mysql_real_escape_string($this->last);
+      $qemail = mysql_real_escape_string($this->Email);
       $qalias = mysql_real_escape_string($this->Mainalias);
       $qgender = mysql_real_escape_string($this->Gender);
       $qdisplay = $this->Display? 1: 0;
-      $ret = mysql_query("INSERT INTO person (first,last,mainalias,email,gender,display) VALUES ('$qfirst','$qlast','$qmainalias','$qgender',$qdisplay)");
+      $ret = mysql_query("INSERT INTO person (first,last,mainalias,email,gender,display) VALUES ('$qfirst','$qlast','$qmainalias','$qemail','$qgender',$qdisplay)");
       if (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not create person record - $e");
       }
       return $this;
+   }
+   
+   public function update()  {
+      $qemail = mysql_real_escape_string($this->Email);
+      $qgender = mysql_real_escape_string($this->Gender);
+      $qdisplay = $this->Display? 1: 0;
+      $ret = mysql_query("UPDATE person set email='$qemail',gender='$qgender',display=$qdisplay WHERE {$this->queryofalias()}");
+      if (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not updae person record - $e");
+      }
    }
   
    public function text_name()  {
@@ -182,12 +194,20 @@ class Person {
 	}
 	
 	public function get_passwd() {
-	   $qid = mysql_real_escape_string($this->Mainalias);
-	   $ret = mysql_query("SELECT password FROM logins WHERE mainalias='$qid'");
+	   $ret = mysql_query("SELECT password FROM logins WHERE {$this->queryofalias()}");
 	   if (!$ret || mysql_num_rows($ret) == 0)
 	     return  "";
 	   $row = mysql_fetch_array($ret);
 	   return $row[0];
+	}
+	
+	public function reset_password($npw)  {
+	   $qpw = mysql_real_escape_string($npw);
+	   $ret = mysql_query("UPDATE logins SET password='$qpw' WHERE {$this->queryofalias()}");
+	   if (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not reset password - $e");
+      }
 	}
 	
 	public function get_alt_aliases($not = false)  {
@@ -200,6 +220,20 @@ class Person {
       while ($row = mysql_fetch_array($ret))
          array_push($result, $row[0]);
       return  $result;
+	}
+	
+	public function replace_aliases($newaliases)
+	{
+	   $ret = mysql_query("DELETE FROM aliases WHERE {$this->queryofalias()}");
+	   if (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not delete old aliases - $e");
+      }
+      $qma = mysql_real_escape_string($this->Mainalias);
+      foreach ($newaliases as $na)  {
+         $qna = mysql_real_escape_string($na);
+         
+      }
 	}
 }
 

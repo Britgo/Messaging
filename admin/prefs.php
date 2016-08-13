@@ -93,9 +93,12 @@ function checkform()  {
          }
       }
    }
+   if (fm.passw1.value != fm.passw2.value)  {
+      alert("Passwords do not match");
+      return  false;
+   }
    
-   alert("Not doing anything yet");
-   return false;
+   return true;
 }
 function goBack() {
    window.history.back();
