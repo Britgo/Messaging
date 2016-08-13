@@ -33,7 +33,7 @@ try {
    $mypers->fetchdetsfromalias();
    $current_aliases = $mypers->get_alt_aliases();
    $not_aliases = $mypers->get_alt_aliases(true);
-   $cpw = htlmspecialchars($mypers->get_passwd());
+   $cpw = htmlspecialchars($mypers->get_passwd());
    $roles = Role::get_personal_roles($mypers);
 }
 catch (Messerr $e) {
