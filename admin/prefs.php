@@ -66,7 +66,7 @@ foreach ($not_aliases as $al) {
 }
 foreach ($allroles as $al) {
    $lal = strtolower($al);
-   print "Existing_aliases['$al'] = 1;\n";
+   print "Existing_aliases['$lal'] = 1;\n";
 }
 foreach ($allmails as $al)  {
    $lal = strtolower($al->Name);
@@ -81,7 +81,7 @@ function checkform()  {
    }
    for (var n = 0;  n < 20;  n++)  {
       var ael = form.elements['alias'+n].value;
-      if (!nonblank(ael)  {
+      if (!nonblank(ael))  {
          if (!okalias(ael)) {
             alert("Bad format alias - " + ael);
             return  false;
