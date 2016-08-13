@@ -75,7 +75,7 @@ foreach ($allmails as $al)  {
 ?>
 function checkform()  {
    var fm = document.pform;
-   if (!nonblank(fm.email.value)  {
+   if (!nonblank(fm.email.value))  {
       alert("No email address specified");
       return false;
    }
