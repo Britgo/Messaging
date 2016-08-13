@@ -76,9 +76,10 @@ class Person {
 		return "first='$qf' and last='$ql'";
 	}
 	
-	public function queryofalias()  {
+	public function queryofalias($not = false)  {
 	   $qid = mysql_real_escape_string($this->Mainalias);
-	   return "mainalias='$qid'";
+	   $op = $not? '=' : '=';
+	   return  "mainalias$op'$qid'";
 	}
 	
 	public function urlofname() {
@@ -168,6 +169,10 @@ class Person {
 		return  htmlspecialchars($this->text_name());
  	}
  	
+ 	public function display_alias() {
+		return  htmlspecialchars($this->Mainalias);
+ 	}
+ 	
  	public function is_same($pl) {
 		return  strcasecmp($this->First, $pl->First) == 0  && strcasecmp($this->Last, $pl->Last) == 0;
 	}
@@ -179,6 +184,18 @@ class Person {
 	     return  "";
 	   $row = mysql_fetch_array($ret);
 	   return $row[0];
+	}
+	
+	public function get_alt_aliases($not = false)  {
+	   $ret = mysql_query("SELECT altalias FROM aliases WHERE {$this->queryofalias($not)} ORDER BY altalias");
+	   if (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not read alt alias record - $e");
+      }
+      $result = array();
+      while ($row = mysql_fetch_array($ret))
+         array_push($result, $row[0]);
+      return  $result;
 	}
 }
 

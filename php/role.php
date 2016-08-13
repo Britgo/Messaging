@@ -54,10 +54,10 @@ class Role {
 	   $ret = mysql_query("SELECT mainalias,ordering FROM roles WHERE {$this->queryof()}");
 	   if  (!$ret)  {
          $e = mysql_error();
-         throw Messerr("Could not fetch roles - $e");
+         throw new Messerr("Could not fetch roles - $e");
       }
       if (mysql_num_rows($ret) == 0)
-         throw Messerr("Could not find role {$this->Name}");
+         throw new Messerr("Could not find role {$this->Name}");
       $row = mysql_fetch_assoc($ret);
       $this->Aliasname = $row['mainalias'];
       $this->Ordering = $row['ordering'];
@@ -66,7 +66,7 @@ class Role {
 	
 	public function fetchperson() {
 	   if (!$this->isdefined())
-	     throw Messerr("Undefined role in use");
+	     throw new Messerr("Undefined role in use");
 	   $this->Aliasperson = new Person($this->Aliasname, "", true);
 	   $this->Aliasperson->fetchdetsfromalias();
 	   return $this;
@@ -88,7 +88,7 @@ class Role {
 	   $ret = mysql_query("SELECT role,mainalias,ordering FROM roles ORDER BY ordering");
 	   if  (!$ret)  {
          $e = mysql_error();
-         throw Messerr("Could not fetch roles - $e");
+         throw new Messerr("Could not fetch roles - $e");
       }
       $result = array();
       while ($row = mysql_fetch_assoc($ret))  {
@@ -105,12 +105,24 @@ class Role {
       }
       return  $result;
 	}
+	
+	public static function get_personal_roles($pers)  {
+	   $result = array();
+	   $ret = mysql_query("SELECT role FROM roles WHERE {$pers->queryofalias()} ORDER by ordering");
+	   if  (!$ret) {
+         $e = mysql_error();
+         throw new Messerr("Could not fetch roles for person - $e");
+      }
+      while ($row = mysql_fetch_array($ret))
+         array_push($result, $row[0]);
+      return $result;
+	}
 
    public static function get_next_ordering()  {
       $ret = mysql_query("SELECT MAX(ordering) from roles");
       if  (!$ret)  {
          $e = mysql_error();
-         throw Messerr("Could not fetch max role ordering - $e");
+         throw new Messerr("Could not fetch max role ordering - $e");
       }
       if (mysql_num_rows($ret) == 0)
          return  0;
