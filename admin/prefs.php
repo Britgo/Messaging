@@ -123,13 +123,13 @@ EOT;
 $usel = $msel = $fsel = "";
 switch  ($mypers->Gender)  {
    default:
-      $usel = " checked=\"checked\"";
+      $usel = " selected=\"selected\"";
       break;
    case 'M':
-      $msel = " checked=\"checked\"";
+      $msel = " selected=\"selected\"";
       break;
    case 'F':
-      $fsel = " checked=\"checked\"";
+      $fsel = " selected=\"selected\"";
       break;
  }
  print <<<EOT
