@@ -41,7 +41,7 @@ try {
 }
 catch (Messerr $e) {
    $mess = "Open database: " . $e->getMessage();
-   include 'php/wrongentry.php';
+   include '../php/wrongentry.php';
    exit(0);
 }
 
