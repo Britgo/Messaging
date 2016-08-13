@@ -64,7 +64,7 @@ foreach ($not_aliases as $al)
 foreach ($allroles as $al)
    print "Existing_aliases['$al'] = 1;\n";
 foreach ($allmails as $al)
-   print "Existing_aliases['($al-Name}'] = 1;\n";
+   print "Existing_aliases['{$al-Name}'] = 1;\n";
 ?>
 function checkform()  {
    var fm = document.pform;
