@@ -109,33 +109,33 @@ print <<<EOT
 EOT;
 
 if ($mypers->Display)
-   print "<td><input type=\"checkbox\" name=\"dispok\" checked=\"checked\"></td>\n";
+   print "<td align=\"right\"><input type=\"checkbox\" name=\"dispok\" checked=\"checked\"></td>\n";
 else
-   print "<td><input type=\"checkbox\" name=\"dispok\"></td>\n";
+   print "<td align=\"right\"><input type=\"checkbox\" name=\"dispok\"></td>\n";
  
- print <<<EOT
+print <<<EOT
    <td>Select if your name (not email) may appear on the drop-dwon list.</td>
- </tr>
- <tr>
+</tr>
+<tr>
    <td>Gender (for proper address only)</td>
    <td><select name="gender">
- EOT;
- $usel = $msel = $fsel = "";
- switch  ($mypers->Gender)  {
+EOT;
+$usel = $msel = $fsel = "";
+switch  ($mypers->Gender)  {
    default:
-      $usel = " checked=\"checked";
+      $usel = " checked=\"checked\"";
       break;
    case 'M':
-      $msel = " checked=\"checked";
+      $msel = " checked=\"checked\"";
       break;
    case  'F':
-      $fsel = " checked=\"checked";
+      $fsel = " checked=\"checked\"";
       break;
  }
  print <<<EOT
  <option value="U" label="not given"$usel></option>
- <option value="M" label="not given"$msel></option>
- <option value="F" label="not given"$fsel></option>
+ <option value="M" label="Male"$msel></option>
+ <option value="F" label="Female"$fsel></option>
    </select></td>
  </tr>
  <tr>
