@@ -45,10 +45,10 @@ catch (Messerr $e) {
    exit(0);
 }
 
-// Make a copy of the aliases and pad out with blanks to 20
+// Make a copy of the aliases and pad out with blanks to 12
 
 $alias_copy = $current_aliases;        // Suppose to make new copy
-while (count($alias_copy) < 20)
+while (count($alias_copy) < 12)
    array_push($alias_copy, "");
    
 $Title = "Update personal options";
@@ -79,7 +79,7 @@ function checkform()  {
       alert("No email address specified");
       return false;
    }
-   for (var n = 0;  n < 20;  n++)  {
+   for (var n = 0;  n < 12;  n++)  {
       var ael = fm.elements['alias' + n].value;
       if (nonblank(ael))  {
          if (!okalias(ael)) {

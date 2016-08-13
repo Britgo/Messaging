@@ -55,7 +55,7 @@ if ($npw == "")  {
 }
 
 $naliases = array();
-for ($n = 0;  $n < 20; $n++)  {
+for ($n = 0;  $n < 12; $n++)  {
    $v = $_POST["alias$n"];
    if  ($v != "")  {
       $lv = strtolower($v);
