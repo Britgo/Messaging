@@ -26,6 +26,7 @@ include '../php/session.php';
 include '../php/checklogged.php';
 include '../php/person.php';
 include '../php/role.php';
+include '../php/mailing.php';
 
 try {
    opendb();
