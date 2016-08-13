@@ -133,10 +133,9 @@ switch  ($mypers->Gender)  {
       break;
  }
  print <<<EOT
- <option value="U" label="not given"$usel></option>
- <option value="M" label="Male"$msel></option>
- <option value="F" label="Female"$fsel></option>
-   </select></td>
+ <option value="U"$usel>(Not given)</option>
+ <option value="M"$msel>Male</option>
+ <option value="F"$fsel>Female</option> </select></td>
  </tr>
  <tr>
    <td><b>Password</b></td>
@@ -144,7 +143,7 @@ switch  ($mypers->Gender)  {
 </tr>
  <tr>
    <td><b>Confirmed</b></td>
-   <td><input type="password" name="passw1" size="20" value="$cpw"></td>
+   <td><input type="password" name="passw2" size="20" value="$cpw"></td>
    
 EOT;
 ?>
