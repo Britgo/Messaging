@@ -93,6 +93,7 @@ function checkform()  {
          }
       }
    }
+   alart("PW1=" + fm.passw1.value + ", PW2=" + fm.passw2.value);
    if (fm.passw1.value != fm.passw2.value)  {
       alert("Passwords do not match");
       return  false;
@@ -156,7 +157,7 @@ else
    print "<td align=\"right\"><input type=\"checkbox\" name=\"dispok\"></td>\n";
  
 print <<<EOT
-   <td>Select if your name (not email) may appear on the drop-dwon list.</td>
+   <td>Select if your name (not email) may appear on the drop-down list.</td>
 </tr>
 <tr>
    <td>Gender (for proper address only)</td>
