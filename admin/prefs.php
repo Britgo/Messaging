@@ -55,7 +55,9 @@ include '../php/head.php';
 <script language="javascript" src="/webfn.js"></script>
 <script language="javascript">
 function checkform()  {
-   var fm = document.pform;  
+   var fm = document.pform;
+   alert("Not doing anything yet");
+   return false;
 }
 function goBack() {
    window.history.back();
@@ -64,10 +66,10 @@ function goBack() {
 <?php
 print <<<EOT
 <h1>Updating preferences for {$mypers->display_name()}</h1>
-<form action="/admin/prefs2.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="javascript:return checkform();">
+<form name="pform" action="/admin/prefs2.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="javascript:return checkform();">
 <p>Your system user id and main alias on the system is <b>{$mypers->display_alias()}</b> and you have
 the following additional aliases:</p>
-<table>
+<table cellpadding="3" cellspacing="5">
 
 EOT;
 for ($row = 0; $row < 3;  $row++)  {
@@ -75,11 +77,11 @@ for ($row = 0; $row < 3;  $row++)  {
    for ($col = 0;  $col < 4;  $col++)  {
       $n = $row * 4 + $col;
       print <<<EOT
-   <td><input type="text" name="alias$n" value="{$alias_copy[$n]}" size="20">
+   <td><input type="text" name="alias$n" value="{$alias_copy[$n]}" size="16">
 
 EOT;
    }
-   print "<\tr>\n";
+   print "</tr>\n";
 }
 ?>
 </table>
@@ -97,7 +99,7 @@ EOT;
    print "</ul>\n";
 }
 print <<<EOT
-<table>
+<table cellpadding="3" cellspacing="4">
 <tr>
    <td><b>Email address</b></td>
    <td><input type="text" name="email" value="{$mypers->display_email()}" size="30"></td>
