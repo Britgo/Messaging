@@ -78,7 +78,7 @@ class Person {
 	
 	public function queryofalias($not = false)  {
 	   $qid = mysql_real_escape_string($this->Mainalias);
-	   $op = $not? '=' : '=';
+	   $op = $not? '!=' : '=';
 	   return  "mainalias$op'$qid'";
 	}
 	
