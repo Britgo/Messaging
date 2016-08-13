@@ -128,7 +128,7 @@ switch  ($mypers->Gender)  {
    case 'M':
       $msel = " checked=\"checked\"";
       break;
-   case  'F':
+   case 'F':
       $fsel = " checked=\"checked\"";
       break;
  }
