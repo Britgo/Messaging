@@ -80,7 +80,7 @@ function checkform()  {
       return false;
    }
    for (var n = 0;  n < 20;  n++)  {
-      var ael = form.elements['alias'+n].value;
+      var ael = fm.elements['alias'+n].value;
       if (!nonblank(ael))  {
          if (!okalias(ael)) {
             alert("Bad format alias - " + ael);
