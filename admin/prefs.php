@@ -58,19 +58,40 @@ include '../php/head.php';
 <script language="javascript" src="/webfn.js"></script>
 <script language="javascript">
 <?php
+// Nead js String.toLowerCase
 print "Existing_aliases = new Array();\n";
-foreach ($not_aliases as $al)
+foreach ($not_aliases as $al) {
+   $lal = strtolower($al);
+   print "Existing_aliases['$lal'] = 1;\n";
+}
+foreach ($allroles as $al) {
+   $lal = strtolower($al);
    print "Existing_aliases['$al'] = 1;\n";
-foreach ($allroles as $al)
-   print "Existing_aliases['$al'] = 1;\n";
-foreach ($allmails as $al)
-   print "Existing_aliases['{$al->Name}'] = 1;\n";
+}
+foreach ($allmails as $al)  {
+   $lal = strtolower($al->Name);
+   print "Existing_aliases['$lal'] = 1;\n";
+}
 ?>
 function checkform()  {
    var fm = document.pform;
-   if (!nonblack(fm.email.value)  {
+   if (!nonblank(fm.email.value)  {
       alert("No email address specified");
       return false;
+   }
+   for (var n = 0;  n < 20;  n++)  {
+      var ael = form.elements['alias'+n].value;
+      if (!nonblank(ael)  {
+         if (!okalias(ael)) {
+            alert("Bad format alias - " + ael);
+            return  false;
+         }
+         var lael = String.toLowerCase(ael);
+         if  (Existing_aliases[lael])  {
+            alert(ael + ' clashes with existing alias');
+            return  false;
+         }
+      }
    }
    
    alert("Not doing anything yet");

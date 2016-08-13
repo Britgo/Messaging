@@ -30,6 +30,10 @@ function okname(s)  {
 	return /^[A-Z][a-z]*( +(Mc|O')?[A-Z][a-z]*(-[A-Z][a-z]*)?)+$/.test(s); //'
 }
 
+function okalias(s) {
+   return /^[A-Za-z][-.A-Za-z0-9_]*$/.test(s);
+}
+
 function lostpw() {
 	var uidv = document.getElementById('user_id');
 	var l = uidv.value;

@@ -5,12 +5,12 @@ openfiles: /home/jmc/src/Websites/messaging/index.php:3335:3878:0:
 openfiles: /home/jmc/src/Websites/messaging/php/messerr.php:71:0:0:
 openfiles: /home/jmc/src/Websites/messaging/php/person.php:5545:4625:0:
 openfiles: /home/jmc/src/Websites/messaging/msgsend.php:1650:358:0:
-openfiles: /home/jmc/src/Websites/messaging/php/role.php:3423:2645:0:
-openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:2559:618:0:
+openfiles: /home/jmc/src/Websites/messaging/php/role.php:3488:2645:0:
+openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:2401:1513:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/index.php:2027:823:0:
 openfiles: /home/jmc/src/Websites/messaging/webfn.js:1251:0:0:
 openfiles: /home/jmc/src/Websites/messaging/php/session.php:0:0:0:
-openfiles: /home/jmc/src/Websites/messaging/admin/prefs.php:2008:1237:1:
+openfiles: /home/jmc/src/Websites/messaging/admin/prefs.php:2608:1918:1:
 snr_recursion_level: 5
 convertcolumn_horizontally: 0
 adv_open_matchname: 0
@@ -20,7 +20,7 @@ targetlist: _parent
 show_mbhl: 1
 view_line_numbers: 1
 fb_show_backup_f: 0
-bmarks: ::/home/jmc/src/Websites/messaging/admin/prefs.php:2955:able>:4652:
+bmarks: ::/home/jmc/src/Websites/messaging/admin/prefs.php:3399:able>:5096:
 htmlbar_thumbnailwidth: 300
 view_left_panel: 1
 default_mime_type: text/plain?php
@@ -29,7 +29,7 @@ c2e.convert_iso: 0
 opendir: file:///home/jmc/src/Websites/messaging/admin
 wrap_text_default: 0
 bookmarks_filename_mode: 0
-ssearch_text: }
+ssearch_text: {
 snr_casesens: 0
 view_blocks: 1
 name: BGA Messaging
@@ -90,6 +90,7 @@ searchlist: is_same
 searchlist: queryofalias
 searchlist: Messerr
 searchlist: }
+searchlist: {
 autocomplete: 1
 outputb_show_all_output: 0
 bookmarks_show_mode: 0
