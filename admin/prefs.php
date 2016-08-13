@@ -106,7 +106,7 @@ print <<<EOT
  </tr>
  <tr>
  
- EOT;
+EOT;
  if ($mypers->Display)
    print "<td><input type=\"checkbox\" name=\"dispok\" checked="\checked\"></td>\n";
  else
