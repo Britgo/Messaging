@@ -14,12 +14,12 @@
 //   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 function nonblank(s)  {
-        for (var i = 0;  i < s.length;  i++)  {
-                var c = s.charAt(i);
-                if  (c != ' '  &&  c != '\t'  &&  c != '\n')
-                        return  true;
-        }
-        return  false;
+   for (var i = 0;  i < s.length;  i++)  {
+      var c = s.charAt(i);
+      if  (c != ' '  &&  c != '\t'  &&  c != '\n')
+         return  true;
+   }
+   return  false;
 }
 
 function okcode(s)  {

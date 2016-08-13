@@ -85,7 +85,7 @@ function checkform()  {
       alert(name + '=' + ael);
       if (!nonblank(ael))  {
          if (!okalias(ael)) {
-            alert("Bad format alias - " + ael);
+            alert("Bad format alias - '" + ael + "'");
             return  false;
          }
          var lael = String.toLowerCase(ael);
