@@ -232,7 +232,11 @@ class Person {
       $qma = mysql_real_escape_string($this->Mainalias);
       foreach ($newaliases as $na)  {
          $qna = mysql_real_escape_string($na);
-         
+         $ret = mysql_query("INSERT INTO aliases (mainalias,altalias) VALUES ('$qma','$qna')");
+         if (!$ret)  {
+            $e = mysql_error();
+            throw new Messerr("Could not add alias - $e");
+         }
       }
 	}
 }
