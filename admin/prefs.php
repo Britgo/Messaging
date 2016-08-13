@@ -117,7 +117,7 @@ print <<<EOT
    <td>Select if your name (not email) may appear on the drop-dwon list.</td>
 </tr>
 <tr>
-   <td>Gender (for proper address only)</td>
+   <td>Gender (for proper address only){$mypers->Gender}</td>
    <td><select name="gender">
 EOT;
 $usel = $msel = $fsel = "";
@@ -149,8 +149,8 @@ EOT;
 ?>
 </tr>
 <tr>
-   <td><button name="goback" value="Cancel" type="button" onclick="goBack()"></button></td>
-   <td><button name="subm" value="Save changes" type="submit"></button></td>
+   <td><input type="submit" name="canc" value="Cancel" onclick="goBack();"></td>
+   <td><input type="submit" name="subm" value="Save Changes"></td>
 </tr>
 </table>
 </form>
