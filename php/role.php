@@ -106,9 +106,12 @@ class Role {
       return  $result;
 	}
 	
-	public static function get_personal_roles($pers)  {
+   public static function get_personal_roles($pers = null)  {
 	   $result = array();
-	   $ret = mysql_query("SELECT role FROM roles WHERE {$pers->queryofalias()} ORDER by ordering");
+	   if ($pers)
+	      $ret = mysql_query("SELECT role FROM roles WHERE {$pers->queryofalias()} ORDER by ordering");
+	   else
+         $ret = mysql_query("SELECT role FROM roles ORDER by ordering");
 	   if  (!$ret) {
          $e = mysql_error();
          throw new Messerr("Could not fetch roles for person - $e");

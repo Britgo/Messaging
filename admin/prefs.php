@@ -33,6 +33,8 @@ try {
    $mypers->fetchdetsfromalias();
    $current_aliases = $mypers->get_alt_aliases();
    $not_aliases = $mypers->get_alt_aliases(true);
+   $allroles = Role::get_personal_roles();            // All of them
+   $allmails = Mailing::get_mailings_list();
    $cpw = htmlspecialchars($mypers->get_passwd());
    $roles = Role::get_personal_roles($mypers);
 }
@@ -54,8 +56,22 @@ include '../php/head.php';
 <body>
 <script language="javascript" src="/webfn.js"></script>
 <script language="javascript">
+<?php
+print "Existing_aliases = new Array();\n";
+foreach ($not_aliases as $al)
+   print "Existing_aliases['$al'] = 1;\n";
+foreach ($allroles as $al)
+   print "Existing_aliases['$al'] = 1;\n";
+foreach ($allmails as $al)
+   print "Existing_aliases['($al-Name}'] = 1;\n";
+?>
 function checkform()  {
    var fm = document.pform;
+   if (!nonblack(fm.email.value)  {
+      alert("No email address specified");
+      return false;
+   }
+   
    alert("Not doing anything yet");
    return false;
 }
@@ -88,6 +104,7 @@ EOT;
 <?php
 if (count($roles) > 0)  {
    print <<<EOT
+<h2>Roles</h2>
 <p>You are also holder of the following offices:</p>
 <ul>
 
@@ -117,7 +134,7 @@ print <<<EOT
    <td>Select if your name (not email) may appear on the drop-dwon list.</td>
 </tr>
 <tr>
-   <td>Gender (for proper address only){$mypers->Gender}</td>
+   <td>Gender (for proper address only)</td>
    <td><select name="gender">
 EOT;
 $usel = $msel = $fsel = "";
