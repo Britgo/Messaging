@@ -74,7 +74,7 @@ include '../php/head.php';
 <h1>Mail entry created OK</h1>
 <?php
 print <<<EOT
-<p>The mail entry for {$mypers->display_name()} has been created successfully.</p>
+<p>The mail entry for {$mypers->display_name()} has been created successfully First={$mypers->First} Last={$mypers->Last}.</p>
 
 EOT;
 ?>
