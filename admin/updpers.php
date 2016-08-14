@@ -112,18 +112,18 @@ switch  ($mypers->Gender)  {
       $fsel = " selected=\"selected\"";
       break;
  }
- print <<<EOT
- <option value="U"$usel>(Not given)</option>
- <option value="M"$msel>Male</option>
- <option value="F"$fsel>Female</option> </select></td>
- </tr>
+print <<<EOT
+<option value="U"$usel>(Not given)</option>
+<option value="M"$msel>Male</option>
+<option value="F"$fsel>Female</option> </select></td>
+</tr>
  
- EOT;
- if ($mypers->is_admin())  {
+EOT;
+if ($mypers->is_admin())  {
    print <<<EOT
- <tr>
-   <td><b>Password</b></td>
-   <td><input type="password" name="passw1" size="20" value="$cpw"></td>
+<tr>
+  <td><b>Password</b></td>
+  <td><input type="password" name="passw1" size="20" value="$cpw"></td>
 </tr>
 <tr>
    <td><b>Confirmed</b></td>
