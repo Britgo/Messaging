@@ -90,7 +90,7 @@ class Person {
    
    public function urlofalias() {
 	   $f = urlencode($this->Mainalias);
-      return "alias-$f";
+      return "alias=$f";
    }
    
    public function formencode() {

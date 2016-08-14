@@ -56,7 +56,7 @@ include '../php/head.php';
 <?php
 foreach ($people as $pers) {
    try {
-      $alises = $pers->get_alt_aliases();
+      $aliases = $pers->get_alt_aliases();
       $isadm = $pers->is_admin();
       $roles = Role::get_personal_roles($pers);
    }
@@ -79,15 +79,15 @@ EOT;
 EOT;
    if (count($roles) == 0)
       print <<<EOT
-<a href="javascript:okdel();" title="Remove this person from the system">Delete</a>
+<a href="javascript:okdel(\"{$pers->text_name()}\", '{$pers->urlofalias()}');" title="Remove this person from the system">Delete</a>
 EOT;
    if ($isadm)
       print <<<EOT
-<a href="javascript:okunadm();" title="Cancel this person's admin rights">Un-admin</a>
+<a href="javascript:okunadm(\"{$pers->text_name()}\", '{$pers->urlofalias()}');" title="Cancel this person's admin rights">Un-admin</a>
 EOT;
    else
        print <<<EOT
-<a href="javascript:giveadm();" title="Give this person admin rights">Make admin</a>
+<a href="javascript:giveadm(\"{$pers->text_name()}\", '{$pers->urlofalias()}');" title="Give this person admin rights">Make admin</a>
 EOT;
    print "</tr>\n";
 }
