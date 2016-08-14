@@ -117,7 +117,7 @@ print <<<EOT
 <option value="M"$msel>Male</option>
 <option value="F"$fsel>Female</option> </select></td>
 </tr>
- 
+
 EOT;
 if ($mypers->is_admin())  {
    print <<<EOT
@@ -131,6 +131,7 @@ if ($mypers->is_admin())  {
 </tr>
 
 EOT;
+}
 ?>
 <tr>
    <td><a href="javascript:history.go(-1);">Go Back</a></td>
