@@ -30,7 +30,7 @@ include '../php/mailing.php';
 
 if  (!isset($_GET['alias']) || !!isset($_GET['pw']))  {
    $mess = "No person given";
-   include '../php/wrongentry';
+   include '../php/wrongentry.php';
    exit(0);
 }
 
