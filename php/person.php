@@ -147,12 +147,12 @@ class Person {
    
    public function create()  {
       $qfirst = mysql_real_escape_string($this->First);
-      $qlast = mysql_real_escape_string($this->last);
+      $qlast = mysql_real_escape_string($this->Last);
       $qemail = mysql_real_escape_string($this->Email);
       $qalias = mysql_real_escape_string($this->Mainalias);
       $qgender = mysql_real_escape_string($this->Gender);
       $qdisplay = $this->Display? 1: 0;
-      $ret = mysql_query("INSERT INTO person (first,last,mainalias,email,gender,display) VALUES ('$qfirst','$qlast','$qmainalias','$qemail','$qgender',$qdisplay)");
+      $ret = mysql_query("INSERT INTO person (first,last,mainalias,email,gender,display) VALUES ('$qfirst','$qlast','$qalias','$qemail','$qgender',$qdisplay)");
       if (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not create person record - $e");
