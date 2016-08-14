@@ -75,7 +75,7 @@ function fillaliases() {
    var a1 = fm.alias1;
    var a2 = fm.alias2;
    var re = /^([a-zA-Z]*)( ([a-zA-Z]*))?/;
-   var matches = RegExp.exec(namv);
+   var matches = re.exec(namv);
    if  (!matches)  {
       malias.value = "";
       a0.value = "";
