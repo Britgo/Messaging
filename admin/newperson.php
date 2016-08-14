@@ -112,7 +112,7 @@ function checkform()  {
       alert("Invalid main alias field");
       return false;
    }
-   if (Existing_aliases[smalias)  {
+   if (Existing_aliases[smalias])  {
       alert("Clash of alias " + fm.malias.value);
       return  false;
    }
@@ -134,12 +134,6 @@ function checkform()  {
          }
       }
    }
-   
-   if (fm.passw1.value != fm.passw2.value)  {
-      alert("Passwords do not match");
-      return  false;
-   }
-   
    return true;
 }
 function goBack() {
