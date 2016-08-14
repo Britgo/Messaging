@@ -108,7 +108,7 @@ function checkform()  {
       return false;
    }
    var smalias = String.toLowerCase(fm.malias.value);
-   if (!okalias(smalias)  {
+   if (!okalias(smalias))  {
       alert("Invalid main alias field");
       return false;
    }
