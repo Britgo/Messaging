@@ -83,14 +83,25 @@ function fillaliases() {
       a2.value = "";
    }
    var first = matches[1];
+   if (!first || first.length == 0) {
+      malias.value = "";
+      a0.value = "";
+      a1.value = "";
+      a2.value = "";
+   }
    var last = matches[3];
-   malias.value = first + last.substr(0,1);
-   if (last.length != 0)
-      a0.value = first + '.' + last;
-   else
+   if (!last || last.length == 0)  {
+      malias.value = first;
       a0.value = first;
-   a1.value = first + last;
-   a2.value = first.substr(0,1) + last; 
+      a1.value = first;
+      a2.value = first.substr(0,1);
+   }
+   else  {
+      malias.value = first + last.substr(0,1);
+      a0.value = first + '.' + last;
+      a1.value = first + last;
+      a2.value = first.substr(0,1) + last;
+   } 
 }
 function checkform()  {
    var fm = document.pform;
