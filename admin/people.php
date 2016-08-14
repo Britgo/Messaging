@@ -61,9 +61,13 @@ function okunadm(name, url) {
 function giveadm(name, url) {
    if  (!confirm("Do you really want to give admin preivs to " + name))
       return  false;
-   var pw = prompt("Please specify a password", "");
+   var pw = prompt("Please specify a password for " + name, "");
    if  (pw == null)
       return  false;
+   if  (pw.length == 0)  {
+      alert("Cannot have empty password");
+      return  false;
+   }
    document.location = "/admin/giveadm.php?" + url + '&pw=' + encodeURI(pw);
 }
 </script>
