@@ -28,7 +28,7 @@ include '../php/person.php';
 include '../php/role.php';
 include '../php/mailing.php';
 
-if  (!isset($_GET['alias']) || !!isset($_GET['pw']))  {
+if  (!isset($_GET['alias']) || !isset($_GET['pw']))  {
    $mess = "No person given";
    include '../php/wrongentry.php';
    exit(0);
