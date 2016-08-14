@@ -48,25 +48,23 @@ include '../php/head.php';
 <script language="javascript">
 function okdel(name, url)  {
    if  (!confirm("Do you really want to delete " + name + " from the alias system"))
-      return  false;
+      return;
    document.location = "/admin/delperson.php?" + url;
 }
 
 function okunadm(name, url) {
    if  (!confirm("Do you really want to remove admin privs from " + name))
-      return  false;
+      return;
    document.location = "/admin/unadm.php?" + url;
 }
 
 function giveadm(name, url) {
-   if  (!confirm("Do you really want to give admin preivs to " + name))
-      return  false;
    var pw = prompt("Please specify a password for " + name, "");
    if  (pw == null)
-      return  false;
+      return;
    if  (pw.length == 0)  {
       alert("Cannot have empty password");
-      return  false;
+      return;
    }
    document.location = "/admin/giveadm.php?" + url + '&pw=' + encodeURI(pw);
 }
