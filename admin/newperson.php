@@ -62,7 +62,8 @@ foreach ($allmails as $al)  {
 }
 print "Existing_people = new Array();\n";
 foreach ($allpeople as $ap) {
-   print "Existing_people[\"{$ap->text_name()}\"] = 1;\n";
+   $ln = strtolower($ap->text_name());
+   print "Existing_people[\"$ln\"] = 1;\n";
 }
 ?>
 function fillaliases() {
@@ -98,7 +99,7 @@ function checkform()  {
       alert("No name given");
       return false;
    }
-   if (!okname(sname)))  {
+   if (!okname(sname))  {
       alert("Invalid name");
       return false;
    }
