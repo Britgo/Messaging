@@ -44,6 +44,29 @@ $Title = "List of people on alias system";
 include '../php/head.php';
 ?>
 <body>
+<script language="javascript" src="webfn.js"></script>
+<script language="javascript">
+function okdel(name, url)  {
+   if  (!confirm("Do you really want to delete " + name + " from the alias system"))
+      return  false;
+   document.location = "/admin/delperson.php?" + url;
+}
+
+function okunadm(name, url) {
+   if  (!confirm("Do you really want to remove admin preivs from " + name)
+      return  false;
+   document.location = "/admin/unadm.php?" + url;
+}
+
+function giveadm(name, url) {
+   if  (!confirm("Do you really want to give admin preivs to " + name)
+      return  false;
+   var pw = prompt("Please specify a password", "");
+   if  (pw == null)
+      return  false;
+   document.location = "/admin/unadm.php?" + url + '&' + encodeURI(pw);
+}
+</script>
 <h1>List of people on alias system.</h1>
 <table>
 <tr>
@@ -79,15 +102,15 @@ EOT;
 EOT;
    if (count($roles) == 0)
       print <<<EOT
-<a href="javascript:okdel('{$pers->text_name_nq()}', '{$pers->urlofalias()}');" title="Remove this person from the system">Delete</a>
+&nbsp;<a href="javascript:okdel('{$pers->text_name_nq()}', '{$pers->urlofalias()}');" title="Remove this person from the system">Delete</a>
 EOT;
    if ($isadm)
       print <<<EOT
-<a href="javascript:okunadm('{$pers->text_name_nq()}', '{$pers->urlofalias()}');" title="Cancel this person's admin rights">Un-admin</a>
+&nbsp;<a href="javascript:okunadm('{$pers->text_name_nq()}', '{$pers->urlofalias()}');" title="Cancel this person's admin rights">Un-admin</a>
 EOT;
    else
        print <<<EOT
-<a href="javascript:giveadm('{$pers->text_name_nq()}', '{$pers->urlofalias()}');" title="Give this person admin rights">Make admin</a>
+&nbsp;<a href="javascript:giveadm('{$pers->text_name_nq()}', '{$pers->urlofalias()}');" title="Give this person admin rights">Make admin</a>
 EOT;
    print "</tr>\n";
 }
