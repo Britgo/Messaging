@@ -192,7 +192,7 @@ EOT;
 ?>
 </tr>
 <tr>
-   <td><input type="submit" name="canc" value="Cancel" onclick="goBack();"></td>
+   <td><button onclick="goBack()">Go Back</button></td>
    <td><input type="submit" name="subm" value="Save Changes"></td>
 </tr>
 </table>
