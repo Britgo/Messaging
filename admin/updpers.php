@@ -28,9 +28,17 @@ include '../php/person.php';
 include '../php/role.php';
 include '../php/mailing.php';
 
+if  (!isset($_GET['alias']))  {
+   $mess = "No person given";
+   include '../php/wrongentry.php';
+   exit(0);
+}
+
+$updalias = $_GET['alias'];
+
 try {
    opendb();
-   $mypers = new Person($userid, "", true);
+   $mypers = new Person($updalias, "", true);
    $mypers->fetchdetsfromalias();
    $cpw = htmlspecialchars($mypers->get_passwd());
 }
