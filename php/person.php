@@ -160,6 +160,17 @@ class Person {
       return $this;
    }
    
+   public function delete()  {
+      $qa = $this->queryofalias();
+      foreach (array('person', 'aliases', 'mmemb', 'logins') as $tab)  {
+         $ret = mysql_query("DELETE FROM $tab WHERE $qa");
+         if (!$ret)  {
+            $e = mysql_error();
+            throw new Messerr("Could not delete $tab records - $e");
+         }
+      }
+   }
+   
    public function update()  {
       $qemail = mysql_real_escape_string($this->Email);
       $qgender = mysql_real_escape_string($this->Gender);

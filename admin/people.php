@@ -53,7 +53,7 @@ function okdel(name, url)  {
 }
 
 function okunadm(name, url) {
-   if  (!confirm("Do you really want to remove admin preivs from " + name))
+   if  (!confirm("Do you really want to remove admin privs from " + name))
       return  false;
    document.location = "/admin/unadm.php?" + url;
 }
