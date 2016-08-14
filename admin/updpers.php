@@ -68,9 +68,6 @@ function checkform()  {
    
    return true;
 }
-function goBack() {
-   window.history.back();
-}
 </script>
 <?php
 print <<<EOT
@@ -120,19 +117,23 @@ switch  ($mypers->Gender)  {
  <option value="M"$msel>Male</option>
  <option value="F"$fsel>Female</option> </select></td>
  </tr>
+ 
+ EOT;
+ if ($mypers->is_admin())  {
+   print <<<EOT
  <tr>
    <td><b>Password</b></td>
    <td><input type="password" name="passw1" size="20" value="$cpw"></td>
 </tr>
- <tr>
+<tr>
    <td><b>Confirmed</b></td>
    <td><input type="password" name="passw2" size="20" value="$cpw"></td>
-   
+</tr>
+
 EOT;
 ?>
-</tr>
 <tr>
-   <td><input type="submit" name="canc" value="Cancel" onclick="goBack();"></td>
+   <td><a href="javascript:history.go(-1);">Go Back</a></td>
    <td><input type="submit" name="subm" value="Save Changes"></td>
 </tr>
 </table>
