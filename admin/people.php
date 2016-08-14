@@ -64,11 +64,11 @@ function giveadm(name, url) {
    var pw = prompt("Please specify a password", "");
    if  (pw == null)
       return  false;
-   document.location = "/admin/unadm.php?" + url + '&' + encodeURI(pw);
+   document.location = "/admin/giveadm.php?" + url + '&pw=' + encodeURI(pw);
 }
 </script>
 <h1>List of people on alias system.</h1>
-<table>
+<table cellpadding="3" cellspacing="5">
 <tr>
    <th>Name</th>
    <th>Main alias</th>
