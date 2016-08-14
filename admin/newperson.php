@@ -110,7 +110,7 @@ function checkform()  {
       alert("No name given");
       return false;
    }
-   if (!okname(sname))  {
+   if (!okname(fm.name.value))  {
       alert("Invalid name");
       return false;
    }
