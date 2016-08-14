@@ -101,9 +101,6 @@ function checkform()  {
    
    return true;
 }
-function goBack() {
-   window.history.back();
-}
 </script>
 <?php
 print <<<EOT
@@ -192,7 +189,7 @@ EOT;
 ?>
 </tr>
 <tr>
-   <td><button onclick="goBack()">Go Back</button></td>
+   <td><button onclick="history.go(-1);">Go Back</button></td>
    <td><input type="submit" name="subm" value="Save Changes"></td>
 </tr>
 </table>
