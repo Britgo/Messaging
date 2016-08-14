@@ -44,7 +44,7 @@ $Title = "List of people on alias system";
 include '../php/head.php';
 ?>
 <body>
-<script language="javascript" src="webfn.js"></script>
+<script language="javascript" src="/webfn.js"></script>
 <script language="javascript">
 function okdel(name, url)  {
    if  (!confirm("Do you really want to delete " + name + " from the alias system"))
