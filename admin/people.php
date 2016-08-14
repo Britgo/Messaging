@@ -53,13 +53,13 @@ function okdel(name, url)  {
 }
 
 function okunadm(name, url) {
-   if  (!confirm("Do you really want to remove admin preivs from " + name)
+   if  (!confirm("Do you really want to remove admin preivs from " + name))
       return  false;
    document.location = "/admin/unadm.php?" + url;
 }
 
 function giveadm(name, url) {
-   if  (!confirm("Do you really want to give admin preivs to " + name)
+   if  (!confirm("Do you really want to give admin preivs to " + name))
       return  false;
    var pw = prompt("Please specify a password", "");
    if  (pw == null)
