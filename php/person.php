@@ -179,8 +179,8 @@ class Person {
    
    public function text_name_nq()  {
       $ret = $this->text_name();
-      $ret = str_repalce("'", "", $ret);
-      $ret = str_repalce('"', "", $ret);
+      $ret = str_replace("'", "", $ret);
+      $ret = str_replace('"', "", $ret);
       return  $ret;
    }
    
