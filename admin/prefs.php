@@ -189,7 +189,7 @@ EOT;
 ?>
 </tr>
 <tr>
-   <td><button onclick="javascript:history.go(-1);">Go Back</button></td>
+   <td><a href="javascript:history.go(-1);">Go Back</a></td>
    <td><input type="submit" name="subm" value="Save Changes"></td>
 </tr>
 </table>
