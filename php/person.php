@@ -145,7 +145,7 @@ class Person {
       return  $this;
    }
    
-   public function  create()  {
+   public function create()  {
       $qfirst = mysql_real_escape_string($this->First);
       $qlast = mysql_real_escape_string($this->last);
       $qemail = mysql_real_escape_string($this->Email);

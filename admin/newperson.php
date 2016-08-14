@@ -166,6 +166,10 @@ function goBack() {
    <td><b>Email address</b></td>
    <td><input type="text" name="email" size="30"></td>
 </tr>
+<tr>
+<td align="right"><input type="checkbox" name="dispok"></td>
+<td>Select if the name (not email) may appear on the drop-down list.</td>
+</tr>
 </table>
 <h2>Other aliases</h2>
 <table cellpadding="3" cellspacing="5">
@@ -184,10 +188,6 @@ EOT;
 ?>
 </table>
 <table cellpadding="3" cellspacing="4">
-<tr>
-<td align="right"><input type="checkbox" name="dispok"></td>
-<td>Select if your name (not email) may appear on the drop-down list.</td>
-</tr>
 <tr>
    <td>Gender (for proper address only)</td>
    <td><select name="gender"><option value="U">(Not given)</option><option value="M" selected="selected">Male</option><option value="F">Female</option></select></td>
