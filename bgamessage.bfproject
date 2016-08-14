@@ -3,16 +3,17 @@ e2c.convert_num: 0
 openfiles: /home/jmc/src/Websites/messaging/php/head.php:742:0:0:
 openfiles: /home/jmc/src/Websites/messaging/index.php:3335:3878:0:
 openfiles: /home/jmc/src/Websites/messaging/php/messerr.php:71:0:0:
-openfiles: /home/jmc/src/Websites/messaging/php/person.php:7610:6526:1:
+openfiles: /home/jmc/src/Websites/messaging/php/person.php:6862:6016:0:
 openfiles: /home/jmc/src/Websites/messaging/msgsend.php:3900:3203:0:
-openfiles: /home/jmc/src/Websites/messaging/php/role.php:2173:2417:0:
+openfiles: /home/jmc/src/Websites/messaging/php/role.php:2173:2485:0:
 openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:2401:1513:0:
-openfiles: /home/jmc/src/Websites/messaging/admin/index.php:2027:823:0:
+openfiles: /home/jmc/src/Websites/messaging/admin/index.php:1647:756:0:
 openfiles: /home/jmc/src/Websites/messaging/webfn.js:871:0:0:
 openfiles: /home/jmc/src/Websites/messaging/php/session.php:0:0:0:
-openfiles: /home/jmc/src/Websites/messaging/admin/prefs.php:1861:2699:0:
-openfiles: /home/jmc/src/Websites/messaging/admin/prefs2.php:2127:2029:0:
-openfiles: /home/jmc/src/Websites/tournreg/php/genpasswd.php:1255:0:0:
+openfiles: /home/jmc/src/Websites/messaging/admin/prefs.php:1792:0:0:
+openfiles: /home/jmc/src/Websites/messaging/admin/prefs2.php:1293:506:0:
+openfiles: /home/jmc/src/Websites/messaging/admin/people.php:2087:1081:1:
+openfiles: /home/jmc/src/Websites/messaging/php/genpasswd.php:0:0:0:
 snr_recursion_level: 5
 convertcolumn_horizontally: 0
 adv_open_matchname: 0
@@ -27,10 +28,10 @@ view_left_panel: 1
 default_mime_type: text/plain?php
 e2c.convert_xml: 1
 c2e.convert_iso: 0
-opendir: file:///home/jmc/src/Websites/tournreg/php
+opendir: file:///home/jmc/src/Websites/messaging/php
 wrap_text_default: 0
 bookmarks_filename_mode: 0
-ssearch_text: wrong
+ssearch_text: 20
 snr_casesens: 0
 view_blocks: 1
 name: BGA Messaging
@@ -75,8 +76,9 @@ recent_files: file:///home/jmc/src/Websites/messaging/admin/login.php
 recent_files: file:///home/jmc/src/Websites/messaging/admin/logout.php
 recent_files: file:///home/jmc/src/Websites/messaging/admin/rempwbyuid.php
 recent_files: file:///home/jmc/src/Websites/tournreg/php/genpasswd.php
+recent_files: file:///home/jmc/src/Websites/messaging/php/genpasswd.php
 snr_replacetype: 0
-savedir: file:///home/jmc/src/Websites/messaging/admin
+savedir: file:///home/jmc/src/Websites/messaging/php
 spell_check_default: 1
 spell_insert_entities: 0
 last_filefilter: 
@@ -94,6 +96,7 @@ searchlist: Messerr
 searchlist: }
 searchlist: {
 searchlist: wrong
+searchlist: 20
 autocomplete: 1
 outputb_show_all_output: 0
 bookmarks_show_mode: 0

@@ -193,6 +193,34 @@ class Person {
 		return  strcasecmp($this->First, $pl->First) == 0  && strcasecmp($this->Last, $pl->Last) == 0;
 	}
 	
+	public function is_admin() {
+	   $ret = mysql_query("SELECT COUNT(*) FROM logins WHERE {$this->queryofalias()}");
+	   if (!$ret || mysql_num_rows($ret) == 0)
+	     return  false;
+	   $row = mysql_fetch_array($ret);
+	   return $row[0] != 0;
+	}
+	
+	public function set_admin($pw) {
+	   if ($this->is_admin())
+	      throw new Messerr("User is already admin");
+	   $qpw = mysql_real_escape_string($pw);
+	   $qma = mysql_real_escape_string($this->Mainalias);
+	   $ret = mysql_query("INSERT INTO logins (mainalias,password) VALUES ('$qma','$qpw')");
+	   if (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not set admin - $e");
+      }
+	}
+
+	public function delete_admin() {
+	   $ret = mysql_query("DELETE FROM logins WHERE {$this->queryofalias()}");
+	   if (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not delete admin - $e");
+      }
+	}
+	
 	public function get_passwd() {
 	   $ret = mysql_query("SELECT password FROM logins WHERE {$this->queryofalias()}");
 	   if (!$ret || mysql_num_rows($ret) == 0)

@@ -27,15 +27,7 @@ include '../php/checklogged.php';
 include '../php/person.php';
 include '../php/role.php';
 include '../php/mailing.php';
-
-function generate_password() {
-	$passw = "";
-	$poss = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-	$lp = strlen($poss) - 1;
-	for ($i = 0; $i < 10; $i++)
-		$passw = $passw . $poss[rand(0,$lp)];
-	return  $passw;
-}
+include '../php/genpasswd.php';
 
 if (!isset($_POST['email']) || !isset($_POST['passw1']))  {
    $ness = "Not from form???";

@@ -93,7 +93,7 @@ function checkform()  {
          }
       }
    }
-   alert("PW1=" + fm.passw1.value + ", PW2=" + fm.passw2.value);
+   
    if (fm.passw1.value != fm.passw2.value)  {
       alert("Passwords do not match");
       return  false;
