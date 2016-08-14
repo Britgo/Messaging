@@ -177,6 +177,13 @@ class Person {
  		return  $this->First . ' ' . $this->Last;
    }
    
+   public function text_name_nq()  {
+      $ret = $this->text_name();
+      $ret = str_repalce("'", "", $ret);
+      $ret = str_repalce('"', "", $ret);
+      return  $ret;
+   }
+   
 	public function display_name() {
 		return  htmlspecialchars($this->text_name());
  	}
