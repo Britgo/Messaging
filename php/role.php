@@ -86,7 +86,7 @@ class Role {
  	}
  	
  	public function display_person() {
-      if (is_null($this->Aliasperson)
+      if (is_null($this->Aliasperson))
          return "Person not loaded for {$this->display_name()}";
       return  $this->Aliasperson->display_name(); 	    
  	}
