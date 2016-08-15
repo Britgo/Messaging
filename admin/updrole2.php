@@ -27,56 +27,41 @@ include '../php/person.php';
 include '../php/role.php';
 include '../php/mailing.php';
 
-if (!isset($_POST['name']) || !isset($_POST['malias']))  {
+if (!isset($_POST['rolename']) || !isset($_POST['person']))  {
    $ness = "Not from form???";
    include '../php/wrongentry.php';
    exit(0);
 }
-$name = $_POST['name'];
-$malias = $_POST['malias'];
-$email = $_POST['email'];
-$disp = isset($_POST['dispok']);
-$gender = $_POST['gender'];
-
-$naliases = array();
-for ($n = 0;  $n < 12; $n++)  {
-   $v = $_POST["alias$n"];
-   if  ($v != "")  {
-      $lv = strtolower($v);
-      $naliases[$lv] = $v;
-   }
-}
-
-if (isset($naliases[strtolower($malias)]))
-   unset($naliases[strtolower($malias)]);
+$name = $_POST['rolename'];
+$person = $_POST['person'];
+$ordering = $_POST['ordering'];
 
 try {
    opendb();
-   $mypers = new Person($name);
-   $mypers->Mainalias = $malias;
-   $mypers->Email = $email;
-   $mypers->Gender = $gender;
-   $mypers->Display = $disp;
-   $mypers->create();
-   $mypers->replace_aliases($naliases);
+   $mypers = new Person($person);
+   $mypers->fetchdetsfromname();
+   $myrole = new Role($name);
+   $myrole->Aliasname = $mypers->Mainalias;
+   $myrole->Ordering = $ordering;
+   $myrole->update();
 }
 catch (Messerr $e)  {
    $mess = "Update error " . $e->getMessage();
    include '../php/wrongentry.php';
    exit(0);
 }
-$Title = "Mailing entry created OK";
+$Title = "Mailing role updated OK";
 include '../php/head.php';
 ?>
 <body>
-<h1>Mail entry created OK</h1>
+<h1>Mail role created OK</h1>
 <?php
 print <<<EOT
-<p>The mail entry for {$mypers->display_name()} has been created successfully.</p>
+<p>The mail role for {$myrole->display_name()} as {$mypers->display_name()} has been updated successfully.</p>
 
 EOT;
 ?>
 <p>Please <a href="/admin/index.php">Click here</a> to return to the admin page or
-<a href="/admin/people.php">here</a> to go back to the previous page.</p>
+<a href="/admin/roles.php">here</a> to go back to the previous page.</p>
 </body>
 </html>

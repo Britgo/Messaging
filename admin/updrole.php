@@ -177,6 +177,6 @@ EOT;
 </tr>
 </table>
 </form>
-</form>
+<p>Putting a negative weighting will put the role at the end of the list.</p>
 </body>
 </html>
