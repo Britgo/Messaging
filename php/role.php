@@ -77,6 +77,47 @@ class Role {
 	   return $this;
 	}
 	
+	public function create()  {
+	   $qn = mysql_real_escape_string($this->Rolename);
+	   $qa = mysql_real_escape_string($this->Aliasname);
+	   if ($this->Ordering < 0)
+	     $qo = $this->Ordering = get_next_ordering();
+	   $ret = mysql_query("INSERT INTO roles (role,mainalias,ordering) VALUES ('$qn','$qa'.$qo)");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not create roles - $e");
+      }
+      return $this;
+	}
+	
+	public function update()  {
+	   $qa = mysql_real_escape_string($this->Aliasname);
+      if ($this->Ordering < 0)
+	      $this->Ordering = get_next_ordering();
+	   $qo = $this->Ordering;
+	   $ret = mysql_query("UPDATE roles set mainalias='$qa',ordering=$qo WHERE {$this->queryof()}");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not update roles - $e");
+      }
+      return $this;
+	}
+	
+	public function delete()  {
+	   $qrole = $this->queryof();
+	   $ret = mysql_query("DELETE FROM roles WHERE $qrole");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not update roles - $e");
+      }
+      $ret = mysql_query("DELETE FROM rmemb WHERE $qrole");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not update role membs - $e");
+      }
+      return $this;
+	}
+	
 	public function text_name() {
 	   return  $this->Rolename;
 	}

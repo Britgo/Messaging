@@ -22,59 +22,43 @@
 include '../php/session.php';
 include '../php/messerr.php';
 include '../php/opendb.php';
+include '../php/session.php';
 include '../php/checklogged.php';
 include '../php/person.php';
 include '../php/role.php';
 include '../php/mailing.php';
 
-try {
-   opendb();
-   $mypers = new Person($userid, "", true);
-   $mypers->fetchdetsfromalias();
-   $people = get_person_list(true);
-   $people_dict = get_alias_dict($people);
-   $current_roles = Role::get_roles_list($people_dict);
-}
-catch (Messerr $e) {
-   $mess = "Open database: " . $e->getMessage();
-   include '../php/wrongentry.php';
+if  (!isset($_GET['role']))  {
+   $mess = "No role given";
+   include '../php/wrongentry';
    exit(0);
 }
 
-$Title = "List of roles";
+$delrole = $_GET['role'];
+
+try {
+   opendb();
+   $myrole = new Role($delrole);
+   $myrole->fetchdetsfromalias();
+   $myrole->delete();
+}
+catch (Messerr $e)  {
+   $mess = "Delete error " . $e->getMessage();
+   include '../php/wrongentry.php';
+   exit(0);
+}
+$Title = "Deleted OK";
 include '../php/head.php';
 ?>
-<body>
-<script language="javascript" src="/webfn.js"></script>
-<script language="javascript">
-function okdel(name, url)  {
-   if  (!confirm("Do you really want to delete role " + name + " from the alias system"))
-      return;
-   document.location = "/admin/delrole.php?" + url;
-}
-</script>
-<h1>List of roles on alias system.</h1>
-<table cellpadding="3" cellspacing="5">
-<tr>
-   <th>Position</th>
-   <th>Person</th>
-   <th>Actions</th>
-</tr>
+<body onload="javascript:window.location = document.referrer;">
+<h1>Deleted OK</h1>
 <?php
-foreach ($current_roles as $role) {
-   $roleurl = $role->urlof();
-   print <<<EOT
-<tr>
-   <td>{$role->display_name()}</td>
-   <td>{$role->display_person()}</td>
-   <td><a href="/admin/updrole.php?$roleurl" title="Update details this role">Update</a>
-   &nbsp;<a href="javascript:okdel('{$role->text_name()}', '$roleurl');" title="Remove this role from the system">Delete</a></td>
-</tr>
+print <<<EOT
+<p>The mail entry for role {$myrole->display_name()} has been deleted successfully.</p>
 
 EOT;
-}
 ?>
-</table>
-<p><a href="/admin/updrole.php">Click here</a> to add a new role to the system.</p>
+<p>Please <a href="/admin/index.php">Click here</a> to return to the admin page or
+<a href="/admin/roles.php">here</a> to go back to the previous page.</p>
 </body>
 </html>
