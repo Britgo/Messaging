@@ -58,6 +58,7 @@ function okdel(name, url)  {
 <tr>
    <th>Position</th>
    <th>Person</th>
+   <th>Weighting</th>
    <th>Actions</th>
 </tr>
 <?php
@@ -67,6 +68,7 @@ foreach ($current_roles as $role) {
 <tr>
    <td>{$role->display_name()}</td>
    <td>{$role->display_person()}</td>
+   <td>{$role->Ordering}</td>
    <td><a href="/admin/updrole.php?$roleurl" title="Update details this role">Update</a>
    &nbsp;<a href="javascript:okdel('{$role->text_name()}', '$roleurl');" title="Remove this role from the system">Delete</a></td>
 </tr>
@@ -75,6 +77,7 @@ EOT;
 }
 ?>
 </table>
+<p>The "Weighting" dictates the order in which the roles are presented, the higher the figure, the lower they appear.</p>
 <p>Please <a href="/admin/index.php">Click here</a> to return to the admin page or <a href="/admin/updrole.php">click here</a> to add a new role to the system.</p>
 </body>
 </html>

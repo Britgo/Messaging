@@ -119,6 +119,7 @@ if (is_null($updating))  {
 <h1>Creating a new role</h1>
 <p>Please enter the name of the new role, normally the first letter is capitalised, and select from the drop-down list the
 person who will fill that role.</p>
+<form name="rform" action="/admin/newrole2.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="javascript:return checkform();">
 
 EOT;
 }
@@ -127,11 +128,11 @@ else  {
 <h1>Updating the role of {$updrole->display_name()}</h1>
 <p>Please select the person to fill the role of {$updrole->display_name()}. If you wanted to change the name, just delete and start
 again.</p>
+<form name="rform" action="/admin/updrole2.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="javascript:return checkform();">
 
 EOT;
 }
 ?>
-<form name="rform" action="/admin/updrole2.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="javascript:return checkform();">
 <table cellpadding="3" cellspacing="4">
 <?php
 if (is_null($updating))
@@ -160,12 +161,22 @@ EOT;
 ?>
 </select>
 </td>
+</tr>>
+<tr>
+<td><b>Ordering</b></td>
+<?php
+print <<<EOT
+<td><input type="text" name="ordering" value="{$updpers->Ordering}" size="10" style="text-align: right; "></td>
+
+EOT;
+?>
 </tr>
 <tr>
    <td><a href="javascript:history.go(-1);">Go Back</a></td>
    <td><input type="submit" name="subm" value="Save"></td>
 </tr>
 </table>
+</form>
 </form>
 </body>
 </html>
