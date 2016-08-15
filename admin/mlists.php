@@ -70,8 +70,8 @@ foreach ($mlists as $mlist) {
    <td>{$mlist->display_description()}</td>
    <td>Needs doing</td>
    <td>Needs doing</td>
-   <td><a href="/admin/updmlist.php?$roleurl" title="Update details this mailing list">Update</a>
-   &nbsp;<a href="javascript:okdel('{$role->text_name()}', '$roleurl');" title="Remove this mailing list from the system">Delete</a></td>
+   <td><a href="/admin/updmlist.php?$mll" title="Update details this mailing list">Update</a>
+   &nbsp;<a href="javascript:okdel('{$mlist->text_name()}', '$mll');" title="Remove this mailing list from the system">Delete</a></td>
 </tr>
 
 EOT;
