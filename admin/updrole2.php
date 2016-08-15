@@ -33,7 +33,7 @@ if (!isset($_POST['rolename']) || !isset($_POST['person']))  {
    exit(0);
 }
 $name = $_POST['rolename'];
-$person = $_POST['person'];
+$person = urldecode($_POST['person']);
 $ordering = $_POST['ordering'];
 
 try {
