@@ -42,6 +42,11 @@ class Mailing {
 		return strcasecmp($this->Description, $rl->Description) == 0;
 	}
 	
+	public function urlof() {
+	   $f = urlencode($this->Name);
+      return "mlist=$f";
+   }
+	
 	public function formencode() {
       return urlencode($this->Name);
    }
