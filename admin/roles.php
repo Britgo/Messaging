@@ -75,6 +75,6 @@ EOT;
 }
 ?>
 </table>
-<p><a href="/admin/updrole.php">Click here</a> to add a new role to the system.</p>
+<p>lease <a href="/admin/index.php">Click here</a> to return to the admin page or <a href="/admin/updrole.php">click here</a> to add a new role to the system.</p>
 </body>
 </html>

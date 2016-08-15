@@ -21,7 +21,7 @@
 
 if (!isset($logged_in) || !$logged_in) {
 	$Title = 'Not logged in';
-	include 'php/head.php';
+	include '/php/head.php';
 	print <<<EOT
 <body>
 <h1>Not logged in</h1>

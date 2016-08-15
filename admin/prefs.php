@@ -35,7 +35,7 @@ try {
    $current_aliases = $mypers->get_alt_aliases();
    $not_aliases = $mypers->get_alt_aliases(true);
    $allroles = Role::get_personal_roles();            // All of them
-   $allmails = Mailing::get_mailings_list();
+   $allmails = Mailing::get_mailings_names();
    $cpw = htmlspecialchars($mypers->get_passwd());
    $roles = Role::get_personal_roles($mypers);
 }
@@ -58,18 +58,17 @@ include '../php/head.php';
 <script language="javascript" src="/webfn.js"></script>
 <script language="javascript">
 <?php
-// Nead js String.toLowerCase
 print "Existing_aliases = new Array();\n";
 foreach ($not_aliases as $al) {
    $lal = strtolower($al);
    print "Existing_aliases['$lal'] = 1;\n";
 }
 foreach ($allroles as $al) {
-   $lal = strtolower($al);
+   $lal = strtolower($al->Rolename);
    print "Existing_aliases['$lal'] = 1;\n";
 }
 foreach ($allmails as $al)  {
-   $lal = strtolower($al->Name);
+   $lal = strtolower($al);
    print "Existing_aliases['$lal'] = 1;\n";
 }
 ?>

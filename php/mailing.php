@@ -88,5 +88,19 @@ class Mailing {
       }
       return  $result;
 	}
+	
+	// Just get names for checking against
+	
+	public static function get_mailings_names() {
+      $ret = mysql_query("SELECT name FROM mailings");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not fetch mailings - $e");
+      }
+      $result = array();
+      while ($row = mysql_fetch_array($ret)
+         array_push($result, $row[0]);
+      return  $result;
+	}
 }
 ?>

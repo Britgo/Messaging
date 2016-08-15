@@ -54,6 +54,11 @@ class Role {
 	   $f = urlencode($this->Rolename);
       return "role=$f";
    }
+   
+   public function save_hidden() {
+		$f = htmlspecialchars($this->Rolename);
+		return "<input type=\"hidden\" name=\"rolename\" value=\"$f\">";
+	}
 	
 	public function fetchalias() {
 	   $ret = mysql_query("SELECT mainalias,ordering FROM roles WHERE {$this->queryof()}");

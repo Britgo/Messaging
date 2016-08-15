@@ -32,10 +32,9 @@ try {
    opendb();
    $mypers = new Person($userid, "", true);
    $mypers->fetchdetsfromalias();
-   $my_aliases = $mypers->get_alt_aliases();
-   $not_aliases = $mypers->get_alt_aliases(true);
+   $all_aliases = Person::get_every_alias();
    $allroles = Role::get_personal_roles();            // All of them
-   $allmails = Mailing::get_mailings_list();
+   $allmails = Mailing::get_mailings_names();
    $allpeople = get_person_list(true);
 }
 catch (Messerr $e) {
@@ -52,12 +51,16 @@ include '../php/head.php';
 <script language="javascript">
 <?php
 print "Existing_aliases = new Array();\n";
-foreach (array_merge($not_aliases, $my_aliases, $allroles) as $al) {
+foreach ($all_aliases as $al) {
    $lal = strtolower($al);
    print "Existing_aliases['$lal'] = 1;\n";
 }
+foreach ($allroles as $al) {
+   $lal = strtolower($al->Rolename);
+   print "Existing_aliases['$lal'] = 1;\n";
+}
 foreach ($allmails as $al)  {
-   $lal = strtolower($al->Name);
+   $lal = strtolower($al);
    print "Existing_aliases['$lal'] = 1;\n";
 }
 print "Existing_people = new Array();\n";

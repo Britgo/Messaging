@@ -270,6 +270,34 @@ class Person {
       $result = array();
       while ($row = mysql_fetch_array($ret))
          array_push($result, $row[0]);
+      if ($not)  {
+         $ret = mysql_query("SELECT mainalias FROM person WHERE {$this->queryofalias($not)}");
+	      if (!$ret)  {
+            $e = mysql_error();
+            throw new Messerr("Could not read alt person record - $e");
+         }
+         while ($row = mysql_fetch_array($ret))
+            array_push($result, $row[0]);
+      }
+      return  $result;
+	}
+	
+	public static function get_every_alias()  {
+	   $ret = mysql_query("SELECT altalias FROM aliases");
+	   if (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not read alt alias record - $e");
+      }
+      $result = array();
+      while ($row = mysql_fetch_array($ret))
+         array_push($result, $row[0]);
+      $ret = mysql_query("SELECT mainalias FROM person WHERE {$this->queryofalias($not)}");
+	   if (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not read alt person record - $e");
+      }
+      while ($row = mysql_fetch_array($ret))
+         array_push($result, $row[0]);
       return  $result;
 	}
 	
