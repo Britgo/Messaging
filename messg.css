@@ -254,10 +254,10 @@ body {
 	line-height: 1.2;
 	height: 100%;
 	max-height: 100%;
-	margin: 0;
 	padding: 0;
 	border: 0;
 	overflow: auto;
+	margin: 10pt;
 }
 
 #Nav {

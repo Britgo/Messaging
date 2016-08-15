@@ -76,7 +76,7 @@ if (is_null($updating))  {
       print "Existing_aliases['$lal'] = 1;\n";
    }
    foreach ($mnames as $al)  {
-      $lal = strtolower($al->Name);
+      $lal = strtolower($al);
       print "Existing_aliases['$lal'] = 1;\n";
    }
 }
@@ -143,7 +143,7 @@ if (is_null($updating))
 
 EOT;
 else
-   $updrole->save_hidden();
+   print "{$updrole->save_hidden()}";
 ?>
 <tr>
 <td><b>Person</b></td>
