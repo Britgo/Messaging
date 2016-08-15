@@ -86,7 +86,8 @@ class Role {
 	   $qn = mysql_real_escape_string($this->Rolename);
 	   $qa = mysql_real_escape_string($this->Aliasname);
 	   if ($this->Ordering < 0)
-	     $qo = $this->Ordering = get_next_ordering();
+	     $this->Ordering = get_next_ordering();
+	   $qo = $this->Ordering;
 	   $ret = mysql_query("INSERT INTO roles (role,mainalias,ordering) VALUES ('$qn','$qa',$qo)");
 	   if  (!$ret)  {
          $e = mysql_error();
