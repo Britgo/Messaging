@@ -117,6 +117,6 @@ EOT;
 }
 ?>
 </table>
-<p><a href="/admin/newperson.php">Click here</a> to add a new person to the system.</p>
+<p><a href="/admin/newperson.php">Click here</a> to add a new person to the system or <a href="/admin/index.php">here</a> to go to the main page.</p>
 </body>
 </html>
