@@ -98,7 +98,7 @@ class Mailing {
          throw new Messerr("Could not fetch mailings - $e");
       }
       $result = array();
-      while ($row = mysql_fetch_array($ret)
+      while ($row = mysql_fetch_array($ret))
          array_push($result, $row[0]);
       return  $result;
 	}
