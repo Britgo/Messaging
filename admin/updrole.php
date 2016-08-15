@@ -161,12 +161,12 @@ EOT;
 ?>
 </select>
 </td>
-</tr>>
+</tr>
 <tr>
 <td><b>Ordering</b></td>
 <?php
 print <<<EOT
-<td><input type="text" name="ordering" value="{$updpers->Ordering}" size="10" style="text-align: right; "></td>
+<td><input type="text" name="ordering" value="{$updrole->Ordering}" size="10" style="text-align: right; "></td>
 
 EOT;
 ?>
