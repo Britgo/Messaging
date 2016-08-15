@@ -207,6 +207,11 @@ class Person {
  	   return  htmlspecialchars($this->Email);
  	}
  	
+ 	public function save_hidden($prefix = "") {
+		$f = htmlspecialchars($this->Mainalias);
+		return "<input type=\"hidden\" name=\"${prefix}alias\" value=\"$f\">";
+	}
+ 	
  	public function is_same($pl) {
 		return  strcasecmp($this->First, $pl->First) == 0  && strcasecmp($this->Last, $pl->Last) == 0;
 	}

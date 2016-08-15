@@ -74,7 +74,7 @@ print <<<EOT
 <h1>Updating details for {$mypers->display_name()}</h1>
 <form name="pform" action="/admin/updpers2.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="javascript:return checkform();">
 <p>This person has system user id and main alias of <b>{$mypers->display_alias()}</b>.</p>
-
+{$mypers->save_hidden()}
 EOT;
 ?>
 <table cellpadding="3" cellspacing="4">
