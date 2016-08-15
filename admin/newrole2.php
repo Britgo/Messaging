@@ -43,21 +43,21 @@ try {
    $myrole = new Role($name);
    $myrole->Aliasname = $mypers->Mainalias;
    $myrole->Ordering = $ordering;
-   $myrole->update();
+   $myrole->create();
 }
 catch (Messerr $e)  {
-   $mess = "Update error " . $e->getMessage();
+   $mess = "Create error " . $e->getMessage();
    include '../php/wrongentry.php';
    exit(0);
 }
-$Title = "Mailing role updated OK";
+$Title = "Mailing role created OK";
 include '../php/head.php';
 ?>
 <body>
-<h1>Mail role updated OK</h1>
+<h1>Mail role created OK</h1>
 <?php
 print <<<EOT
-<p>The mail role for {$myrole->display_name()} as {$mypers->display_name()} has been updated successfully.</p>
+<p>The mail role for {$myrole->display_name()} as {$mypers->display_name()} has been created successfully.</p>
 
 EOT;
 ?>
