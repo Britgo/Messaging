@@ -69,7 +69,7 @@ catch (Messerr $e)  {
 }
 if  ($Newpw)  {
    $fh = popen("REPLYTO=please_do_not_reply@britgo.org mail -s 'Your message system password was reset' $email", "w");
-   fwrite($fh, "Dear {$mypers->display_text()}\n\n");
+   fwrite($fh, "Dear {$mypers->text_name()}\n\n");
    if ($Genpw)
       fwrite($fh, "Please note that your password has been automatically generated and set to\n\n");
    else
