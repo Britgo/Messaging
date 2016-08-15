@@ -87,7 +87,7 @@ class Role {
 	   $qa = mysql_real_escape_string($this->Aliasname);
 	   if ($this->Ordering < 0)
 	     $qo = $this->Ordering = get_next_ordering();
-	   $ret = mysql_query("INSERT INTO roles (role,mainalias,ordering) VALUES ('$qn','$qa'.$qo)");
+	   $ret = mysql_query("INSERT INTO roles (role,mainalias,ordering) VALUES ('$qn','$qa',$qo)");
 	   if  (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not create roles - $e");
