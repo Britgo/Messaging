@@ -33,7 +33,7 @@ if ($logged_in)  {
 <li><a href="/admin/prefs.php">Click here to update personal preferences.</a></li>
 <li><a href="/admin/people.php">Click here for the list of people to include in the system.</a>
 <li><a href="/admin/roles.php">Click here for the list of roles in the system.</a>
-<li><a href="/admin/roles.php">Click here for the list of mailing lists in the system.</a>
+<li><a href="/admin/mlists.php">Click here for the list of mailing lists in the system.</a>
 <li><a href="/admin/savealias.php">Save changes to mail system alias file.</li>
 <li><a href="/admin/logout.php">Log out</a>.</li>
 </ol>

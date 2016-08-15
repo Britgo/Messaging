@@ -49,6 +49,11 @@ class Role {
 	public function formencode() {
       return urlencode($this->Rolename);
    }
+   
+   public function urlof() {
+	   $f = urlencode($this->Rolename);
+      return "role=$f";
+   }
 	
 	public function fetchalias() {
 	   $ret = mysql_query("SELECT mainalias,ordering FROM roles WHERE {$this->queryof()}");
@@ -78,6 +83,12 @@ class Role {
 	
 	public function display_name() {
  		return  htmlspecialchars($this->Rolename);
+ 	}
+ 	
+ 	public function display_person() {
+      if (is_null($this->Aliasperson)
+         return "Person not loaded for {$this->display_name()}";
+      return  $this->Aliasperson->display_name(); 	    
  	}
  	
  	public function get_email() {
