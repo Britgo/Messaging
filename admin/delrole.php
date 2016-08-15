@@ -39,8 +39,7 @@ $delrole = $_GET['role'];
 try {
    opendb();
    $myrole = new Role($delrole);
-   $myrole->fetchdetsfromalias();
-   $myrole->delete();
+   $myrole->fetchalias()->delete();
 }
 catch (Messerr $e)  {
    $mess = "Delete error " . $e->getMessage();
