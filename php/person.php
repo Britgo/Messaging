@@ -291,7 +291,7 @@ class Person {
       $result = array();
       while ($row = mysql_fetch_array($ret))
          array_push($result, $row[0]);
-      $ret = mysql_query("SELECT mainalias FROM person WHERE {$this->queryofalias($not)}");
+      $ret = mysql_query("SELECT mainalias FROM person");
 	   if (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not read alt person record - $e");
