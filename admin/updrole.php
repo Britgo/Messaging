@@ -97,7 +97,7 @@ if (is_null($updating))
       alert("Invalid name");
       return false;
    }
-   if  ($xisting_aliases[lnam])  {
+   if  (Existing_aliases[lnam])  {
       alert(nam + " clashes with an existing name or alias");
       return false;
    }
