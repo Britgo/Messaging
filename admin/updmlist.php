@@ -191,7 +191,7 @@ for ($row = 0;  $row < $rows;  $row++)  {
       $n = $col * $rows + $row;
       print "<td>";
       if  ($n < $nrm)  {
-         $sel = !is_null($updating) && isset($rolelookupalias[$existing_roles[$n]->Name])? " checked=\"checked\"": "";
+         $sel = !is_null($updating) && isset($rolelookupalias[$existing_roles[$n]->Roleame])? " checked=\"checked\"": "";
          print <<<EOT
 <input type="checkbox" name="roles[]" value="{$existing_roles[$n]->Rolename}"$sel>{$existing_roles[$n]->display_name()}
 EOT;
