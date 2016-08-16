@@ -182,9 +182,6 @@ EOT;
 $nrm = count($existing_roles);
 $cols = min(4,ceil($nrm/10));
 $rows = ceil($nrm/$cols);
-print <<<EOT
-<p>nrm=$nrm rows=$rows cols=$cols</p>
-EOT;
 for ($row = 0;  $row < $rows;  $row++)  {
    print "<tr>\n";
    for ($col = 0;  $col < $cols;  $col++)  {
@@ -209,9 +206,6 @@ EOT;
 $nrm = count($people);
 $cols = min(4,ceil($nrm/10));
 $rows = ceil($nrm/$cols);
-print <<<EOT
-<p>nrm=$nrm rows=$rows cols=$cols</p>
-EOT;
 for ($row = 0;  $row < $rows;  $row++)  {
    print "<tr>\n";
    for ($col = 0;  $col < $cols;  $col++)  {
@@ -220,7 +214,7 @@ for ($row = 0;  $row < $rows;  $row++)  {
       if  ($n < $nrm)  {
          $sel = !is_null($updating) && isset($perslookupalias[$people[$n]]->Mainalias)? " checked=\"checked\"": "";
          print <<<EOT
-<input type="checkbox" name="pers[]" value="{$perslookupalias[$n]->Mainalias}"$sel>{$perslookupalias[$n]->display_name()}
+<input type="checkbox" name="pers[]" value="{$people[$n]->Mainalias}"$sel>{$people[$n]->display_name()}
 EOT;
       }
       print "</td>\n";
