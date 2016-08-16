@@ -93,7 +93,7 @@ if (is_null($updating))  {
 ?>
 
 function checkform()  {
-   var fm = document.rform;
+   var fm = document.mform;
 <?php
 if (is_null($updating))
    print <<<EOT
