@@ -64,17 +64,40 @@ function okdel(name, url)  {
 <?php
 foreach ($mlists as $mlist) {
    $mll = $mlist->urlof();
-   print <<<EOT
-<tr>
+   $rmembs = $mlist->get_role_membs();
+   $hr = array();
+   foreach ($membs as $r)
+      array_push($hr, htmlspecialchars($r));
+   $mmembs = $mlist->get_name_membs($people_dict);
+   $mnames = array();
+   foreach ($mmembs as $mm)
+      array_push($mnames, $mm->display_name());
+   while (count($hr) < count($mnames))
+      array_push($hr, "");
+   while (count($mnames) < count($hr))
+      array_push($mnames, "");
+   $col12 = <<<EOT
    <td>{$mlist->display_name()}</td>
    <td>{$mlist->display_description()}</td>
-   <td>Needs doing</td>
-   <td>Needs doing</td>
+
+EOT;
+   $col5 = <<<EOT
    <td><a href="/admin/updmlist.php?$mll" title="Update details this mailing list">Update</a>
    &nbsp;<a href="javascript:okdel('{$mlist->text_name()}', '$mll');" title="Remove this mailing list from the system">Delete</a></td>
+
+EOT;
+   while (count($hr) > 0)  {
+      $col3 = array_shift($hr);
+      $col4 = array_shift($mnames);
+      print <<<EOT
+<tr>
+   $col12<td>$col3</td><td>$col4</td>$col5
 </tr>
 
 EOT;
+      $col12="<td></td><td></td>";
+      $col5="<td></td>";
+   }
 }
 ?>
 </table>

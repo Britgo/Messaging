@@ -1,15 +1,15 @@
 c2e.convert_special: 0
 e2c.convert_num: 0
-openfiles: /home/jmc/src/Websites/messaging/php/person.php:9714:9086:0:
-openfiles: /home/jmc/src/Websites/messaging/php/role.php:3850:4073:0:
-openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:3144:1967:1:
+openfiles: /home/jmc/src/Websites/messaging/php/person.php:9714:5273:0:
+openfiles: /home/jmc/src/Websites/messaging/php/role.php:1785:1391:0:
+openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:3399:2397:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/prefs.php:2415:1261:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/people.php:3901:0:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/newperson2.php:1110:0:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/roles.php:2669:1364:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/updrole.php:5210:3932:0:
 openfiles: /home/jmc/src/Websites/messaging/webfn.js:0:0:0:
-openfiles: /home/jmc/src/Websites/messaging/admin/mlists.php:1407:202:0:
+openfiles: /home/jmc/src/Websites/messaging/admin/mlists.php:2533:1551:1:
 snr_recursion_level: 5
 convertcolumn_horizontally: 0
 adv_open_matchname: 0
@@ -27,7 +27,7 @@ c2e.convert_iso: 0
 opendir: file:///home/jmc/src/Websites/messaging/admin
 wrap_text_default: 0
 bookmarks_filename_mode: 0
-ssearch_text: g
+ssearch_text: {
 snr_casesens: 0
 view_blocks: 1
 name: BGA Messaging
@@ -80,7 +80,7 @@ recent_files: file:///home/jmc/src/Websites/messaging/admin/newrole2.php
 recent_files: file:///home/jmc/src/Websites/messaging/admin/updrole2.php
 recent_files: file:///home/jmc/src/Websites/messaging/admin/mlists.php
 snr_replacetype: 0
-savedir: file:///home/jmc/src/Websites/messaging/admin
+savedir: file:///home/jmc/src/Websites/messaging/php
 spell_check_default: 1
 spell_insert_entities: 0
 last_filefilter: 
@@ -90,8 +90,6 @@ snr_escape_chars: 0
 c2e.convert_symbol: 0
 spell_lang: en_ZA
 ssearch_dotmatchall: 0
-searchlist: }
-searchlist: {
 searchlist: wrong
 searchlist: 20
 searchlist: hidden
@@ -105,6 +103,8 @@ searchlist: my_aliases
 searchlist: allroles
 searchlist: .
 searchlist: g
+searchlist: url
+searchlist: {
 autocomplete: 1
 outputb_show_all_output: 0
 bookmarks_show_mode: 0

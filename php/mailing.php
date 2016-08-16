@@ -79,6 +79,33 @@ class Mailing {
  	public function display_description() {
  		return  htmlspecialchars($this->Description);
  	}
+
+   // These functions get a list of people, we try to be careful about the ordering
+    	
+ 	public function get_role_membs()  {
+ 	   $ret = mysql_query("SELECT rmemb.role FROM rmemb INNER JOIN roles ON rmemb.role=roles.role WHERE rmemb.{$this->queryof()} ORDER BY roles.ordering");
+ 	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not fetch role members of $this->Name - $e");
+      }
+      $result = array();
+      while ($row = mysql_fetch_array($ret))
+         array_push($result, $row[0]);
+      return  $result;
+ 	}
+ 	
+ 	public function get_name_membs($aliasdict)  {
+ 	   $ret = mysql_query("SELECT mmemb.mainalias FROM mmemb INNER JOIN person ON mmemb.mainalias=person.mainalias WHERE mmemb.{$this->queryof()} ORDER BY person.last,person.first");
+ 	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not fetch role members of $this->Name - $e");
+      }
+      $result = array();
+      while ($row = mysql_fetch_array($ret))
+         if (isset($aliasdict[$row[0]]))
+            array_push($result, $alisdict[$row[0]]);
+      return  $result;
+ 	}
 	
 	public static function get_mailings_list() {
 	   $ret = mysql_query("SELECT name,description FROM mailings ORDER BY description");
