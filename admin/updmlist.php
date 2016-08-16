@@ -190,7 +190,7 @@ for ($row = 0;  $row < $rows;  $row++)  {
       if  ($n < $nrm)  {
          $sel = !is_null($updating) && isset($rolelookupalias[$existing_roles[$n]->Aliasname])? " checked=\"checked\"": "";
          print <<<EOT
-<input type="checkbox" name="roles[]" value="{$existing_roles[$n]->Name}"$sel>{$existing_roles[$n]->display_name()}
+<input type="checkbox" name="roles[]" value="{$existing_roles[$n]->Rolename}"$sel>{$existing_roles[$n]->display_name()}
 EOT;
       }
       print "</td>\n";
