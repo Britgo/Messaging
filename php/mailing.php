@@ -102,7 +102,7 @@ class Mailing {
 	}
 	
 	private function del_pmembs()  {
-	   $ret = mysql_query("DELETE FROM mmemb WHERE $this->queryof()}");
+	   $ret = mysql_query("DELETE FROM mmemb WHERE {$this->queryof()}");
 	   if  (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not update person membs - $e");
