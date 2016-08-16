@@ -190,7 +190,7 @@ for ($row = 0;  $row < $rows;  $row++)  {
       if  ($n < $nrm)  {
          $sel = !is_null($updating) && isset($rolelookupalias[$existing_roles[$n]->Aliasname])? " checked=\"checked\"": "";
          print <<<EOT
-         <input type="checkbox" name="roles[]" value="{$rmembs[$n]}"$sel>
+<input type="checkbox" name="roles[]" value="{$existing_roles[$n]->Aliasname}"$sel>{$existing_roles[$n]->display_name()}
 EOT;
       }
       print "</td>\n";
@@ -214,7 +214,7 @@ for ($row = 0;  $row < $rows;  $row++)  {
       if  ($n < $nrm)  {
          $sel = !is_null($updating) && isset($perslookupalias[$people[$n]]->Mainalias)? " checked=\"checked\"": "";
          print <<<EOT
-         <input type="checkbox" name="pers[]" value="{$mmembs[$n]->Mainalias}"$sel>
+<input type="checkbox" name="pers[]" value="{$perslookupalias[$n]->Mainalias}"$sel>{$perslookupalias[$n]->display_name()}
 EOT;
       }
       print "</td>\n";
@@ -222,6 +222,7 @@ EOT;
    print "</tr>\n";
 }
 ?>
+</table>
 <table cellpadding="3" cellspacing="4">
 <tr>
    <td><a href="javascript:history.go(-1);">Go Back</a></td>
@@ -229,6 +230,5 @@ EOT;
 </tr>
 </table>
 </form>
-<p>Putting a negative weighting will put the role at the end of the list.</p>
 </body>
 </html>
