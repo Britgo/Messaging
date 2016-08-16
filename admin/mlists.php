@@ -68,7 +68,7 @@ foreach ($mlists as $mlist) {
    $mll = $mlist->urlof();
    $rmembs = $mlist->get_role_membs();
    $hr = array();
-   foreach ($membs as $r)
+   foreach ($rmembs as $r)
       array_push($hr, htmlspecialchars($r));
    $mmembs = $mlist->get_name_membs($people_dict);
    $mnames = array();
