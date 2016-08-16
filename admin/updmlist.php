@@ -182,6 +182,9 @@ EOT;
 $nrm = count($existing_roles);
 $cols = min(4,ceil($nrm/10));
 $rows = ceil($nrm/$cols);
+print <<<EOT
+<p>nrm=$nrm rows=$rows cols=$cols</p>
+EOT;
 for ($row = 0;  $row < $rows;  $row++)  {
    print "<tr>\n";
    for ($col < 0;  $col < $cols;  $col++)  {
@@ -206,6 +209,9 @@ EOT;
 $nrm = count($people);
 $cols = min(4,ceil($nrm/10));
 $rows = ceil($nrm/$cols);
+print <<<EOT
+<p>nrm=$nrm rows=$rows cols=$cols</p>
+EOT;
 for ($row = 0;  $row < $rows;  $row++)  {
    print "<tr>\n";
    for ($col < 0;  $col < $cols;  $col++)  {
