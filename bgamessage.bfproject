@@ -2,7 +2,7 @@ c2e.convert_special: 0
 e2c.convert_num: 0
 openfiles: /home/jmc/src/Websites/messaging/php/person.php:9714:1665:0:
 openfiles: /home/jmc/src/Websites/messaging/php/role.php:4070:4006:0:
-openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:3650:2602:0:
+openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:2694:2650:1:
 openfiles: /home/jmc/src/Websites/messaging/admin/prefs.php:2415:1261:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/people.php:3901:0:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/newperson2.php:1110:0:0:
@@ -11,7 +11,8 @@ openfiles: /home/jmc/src/Websites/messaging/admin/updrole.php:5210:3447:0:
 openfiles: /home/jmc/src/Websites/messaging/webfn.js:0:0:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/mlists.php:2435:1508:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/delmailing.php:1880:756:0:
-openfiles: /home/jmc/src/Websites/messaging/admin/updmlist.php:5843:5346:1:
+openfiles: /home/jmc/src/Websites/messaging/admin/updmlist.php:5023:5250:0:
+openfiles: /home/jmc/src/Websites/messaging/admin/updmlist2.php:1661:874:0:
 snr_recursion_level: 5
 convertcolumn_horizontally: 0
 adv_open_matchname: 0
@@ -53,7 +54,6 @@ ssearch_regex: 0
 e2c.convert_iso: 0
 ssearch_casesens: 0
 charmap_block: 1
-recent_files: file:///home/jmc/src/Websites/messaging/php/sumchallenge.php
 recent_files: file:///home/jmc/src/Websites/tournreg/php/newaccemail.php
 recent_files: file:///home/jmc/src/Websites/tournreg/newacct2.php
 recent_files: file:///home/jmc/src/Websites/tournreg/ownupd2.php
@@ -83,6 +83,7 @@ recent_files: file:///home/jmc/src/Websites/messaging/admin/updrole2.php
 recent_files: file:///home/jmc/src/Websites/messaging/admin/mlists.php
 recent_files: file:///home/jmc/src/Websites/messaging/admin/delmailing.php
 recent_files: file:///home/jmc/src/Websites/messaging/admin/updmlist.php
+recent_files: file:///home/jmc/src/Websites/messaging/admin/updmlist2.php
 snr_replacetype: 0
 savedir: file:///home/jmc/src/Websites/messaging/admin
 spell_check_default: 1

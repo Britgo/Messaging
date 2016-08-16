@@ -143,7 +143,7 @@ EOT;
 }
 else  {
    print <<<EOT
-<h1>Updating the role of {$updmlist->display_name()}</h1>
+<h1>Updating the details of mailing list: {$updmlist->display_name()}</h1>
 <p>Please select the full description of the new mailing list {$updmlist->display_name()}. If you wanted to change the name, just delete and start
 again.</p>
 <form name="mform" action="/admin/updmlist2.php" method="post" enctype="application/x-www-form-urlencoded" onsubmit="javascript:return checkform();">

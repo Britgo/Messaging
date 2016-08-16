@@ -69,7 +69,47 @@ class Mailing {
       return  $this;
 	}
 	
-	public function create()  {
+	private function create_rmembs($rmembs)  {
+	   $qn = mysql_real_escape_string($this->Name);
+	   foreach ($rmembs as $rn)  {
+	      $qma = mysql_real_escape_string($rn);
+	      $ret = mysql_query("INSERT INTO rmemb (name,role) VALUES ('$qn','$qma')");
+	      if  (!$ret)  {
+            $e = mysql_error();
+            throw new Messerr("Could create role membs - $e");
+         }
+	   }
+	}
+	
+	private function create_pmembs($mmembs)  {
+	   $qn = mysql_real_escape_string($this->Name);
+	   foreach ($mmembs as $mm)  {
+	      $qmm = mysql_real_escape_string($mm);
+	      $ret = mysql_query("INSERT INTO mmemb (name,mainalias) VALUES ('$qn','$qmm')");
+	      if  (!$ret)  {
+            $e = mysql_error();
+            throw new Messerr("Could create pers membs - $e");
+         }
+	   }
+	}
+	
+	private function del_rmembs()  {
+	   $ret = mysql_query("DELETE FROM rmemb WHERE {$this->queryof()}");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not update role membs - $e");
+      }
+	}
+	
+	private function del_pmembs()  {
+	   $ret = mysql_query("DELETE FROM mmemb WHERE $this->queryof()}");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not update person membs - $e");
+      }
+	}
+	
+	public function create($rmembs = null, $mmembs = null)  {
 	   $qn = mysql_real_escape_string($this->Name);
 	   $qd = mysql_real_escape_string($this->Description);
 	   $ret = mysql_query("INSERT INTO mailings (name,description) VALUES ('$qn','$qd')");
@@ -77,36 +117,39 @@ class Mailing {
          $e = mysql_error();
          throw new Messerr("Could not create mailing - $e");
       }
+      if  (!is_null($rmembs))
+         $this->create_rmembs($rmembs);
+      if  (!is_null($mmembs))
+         $this->create_pmembs($mmembs);
       return $this;
 	}
 	
-	public function update()  {
+	public function update($rmembs = null, $mmembs = null)  {
 	   $qd = mysql_real_escape_string($this->Description);
       $ret = mysql_query("UPDATE mailings set description='$qd' WHERE {$this->queryof()}");
 	   if  (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not update mailings - $e");
       }
+      if  (!is_null($rmembs))  {
+         $this->del_rmembs();
+         $this->create_rmembs($rmembs);
+      }
+      if  (!is_null($mmembs))  {
+         $this->del_pmembs();
+         $this->create_pmembs($mmembs);
+      }
       return $this;
 	}
 	
 	public function delete()  {
-	   $qmailing = $this->queryof();
-	   $ret = mysql_query("DELETE FROM mailings WHERE $qmailing");
+	   $ret = mysql_query("DELETE FROM mailings WHERE {$this->queryof()}");
 	   if  (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not update mailings - $e");
       }
-      $ret = mysql_query("DELETE FROM rmemb WHERE $qmailing");
-	   if  (!$ret)  {
-         $e = mysql_error();
-         throw new Messerr("Could not update role membs - $e");
-      }
-      $ret = mysql_query("DELETE FROM mmemb WHERE $qmailing");
-	   if  (!$ret)  {
-         $e = mysql_error();
-         throw new Messerr("Could not update person membs - $e");
-      }
+      del_rmembs();
+      del_pmembs();
       return $this;
 	}
 
