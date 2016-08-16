@@ -212,7 +212,7 @@ for ($row = 0;  $row < $rows;  $row++)  {
       $n = $col * $rows + $row;
       print "<td>";
       if  ($n < $nrm)  {
-         $sel = !is_null($updating) && isset($perslookupalias[$people[$n]]->Mainalias)? " checked=\"checked\"": "";
+         $sel = !is_null($updating) && isset($perslookupalias[$people[$n]->Mainalias])? " checked=\"checked\"": "";
          print <<<EOT
 <input type="checkbox" name="pers[]" value="{$people[$n]->Mainalias}"$sel>{$people[$n]->display_name()}
 EOT;

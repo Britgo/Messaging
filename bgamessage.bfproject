@@ -1,8 +1,8 @@
 c2e.convert_special: 0
 e2c.convert_num: 0
-openfiles: /home/jmc/src/Websites/messaging/php/person.php:9714:5273:0:
-openfiles: /home/jmc/src/Websites/messaging/php/role.php:4070:1284:0:
-openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:3650:3814:0:
+openfiles: /home/jmc/src/Websites/messaging/php/person.php:9714:1665:0:
+openfiles: /home/jmc/src/Websites/messaging/php/role.php:4070:4006:0:
+openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:3650:2602:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/prefs.php:2415:1261:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/people.php:3901:0:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/newperson2.php:1110:0:0:
@@ -11,7 +11,7 @@ openfiles: /home/jmc/src/Websites/messaging/admin/updrole.php:5210:3447:0:
 openfiles: /home/jmc/src/Websites/messaging/webfn.js:0:0:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/mlists.php:2435:1508:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/delmailing.php:1880:756:0:
-openfiles: /home/jmc/src/Websites/messaging/admin/updmlist.php:5815:5211:1:
+openfiles: /home/jmc/src/Websites/messaging/admin/updmlist.php:5843:5346:1:
 snr_recursion_level: 5
 convertcolumn_horizontally: 0
 adv_open_matchname: 0
@@ -29,7 +29,7 @@ c2e.convert_iso: 0
 opendir: file:///home/jmc/src/Websites/messaging/admin
 wrap_text_default: 0
 bookmarks_filename_mode: 0
-ssearch_text: text
+ssearch_text: text_descr
 snr_casesens: 0
 view_blocks: 1
 name: BGA Messaging
@@ -84,7 +84,7 @@ recent_files: file:///home/jmc/src/Websites/messaging/admin/mlists.php
 recent_files: file:///home/jmc/src/Websites/messaging/admin/delmailing.php
 recent_files: file:///home/jmc/src/Websites/messaging/admin/updmlist.php
 snr_replacetype: 0
-savedir: file:///home/jmc/src/Websites/messaging/php
+savedir: file:///home/jmc/src/Websites/messaging/admin
 spell_check_default: 1
 spell_insert_entities: 0
 last_filefilter: 
@@ -94,8 +94,6 @@ snr_escape_chars: 0
 c2e.convert_symbol: 0
 spell_lang: en_ZA
 ssearch_dotmatchall: 0
-searchlist: urlof
-searchlist: $mypers
 searchlist: insert
 searchlist: updpers
 searchlist: allmails
@@ -109,6 +107,8 @@ searchlist: myrole
 searchlist: updrole
 searchlist: hidden
 searchlist: text
+searchlist: form
+searchlist: text_descr
 autocomplete: 1
 outputb_show_all_output: 0
 bookmarks_show_mode: 0
