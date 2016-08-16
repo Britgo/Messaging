@@ -51,6 +51,11 @@ class Mailing {
       return urlencode($this->Name);
    }
 	
+	public function save_hidden() {
+		$f = htmlspecialchars($this->Name);
+		return "<input type=\"hidden\" name=\"name\" value=\"$f\">";
+	}
+	
 	public function fetchdescr() {
 	   $ret = mysql_query("SELECT description FROM mailings WHERE {$this->queryof()}");
 	   if  (!$ret)  {
@@ -64,6 +69,47 @@ class Mailing {
       return  $this;
 	}
 	
+	public function create()  {
+	   $qn = mysql_real_escape_string($this->Name);
+	   $qd = mysql_real_escape_string($this->Description);
+	   $ret = mysql_query("INSERT INTO mailings (name,description) VALUES ('$qn','$qd')");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not create mailing - $e");
+      }
+      return $this;
+	}
+	
+	public function update()  {
+	   $qd = mysql_real_escape_string($this->Description);
+      $ret = mysql_query("UPDATE mailings set description='$qd' WHERE {$this->queryof()}");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not update mailings - $e");
+      }
+      return $this;
+	}
+	
+	public function delete()  {
+	   $qmailing = $this->queryof();
+	   $ret = mysql_query("DELETE FROM mailings WHERE $qmailing");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not update mailings - $e");
+      }
+      $ret = mysql_query("DELETE FROM rmemb WHERE $qmailing");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not update role membs - $e");
+      }
+      $ret = mysql_query("DELETE FROM mmemb WHERE $qmailing");
+	   if  (!$ret)  {
+         $e = mysql_error();
+         throw new Messerr("Could not update person membs - $e");
+      }
+      return $this;
+	}
+
 	public function text_name() {
 	   return  $this->Name;
 	}

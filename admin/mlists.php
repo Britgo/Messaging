@@ -30,6 +30,8 @@ include '../php/mailing.php';
 try {
    opendb();
    $people = get_person_list(true);
+   if  (count($people) == 0)
+      throw new Messerr("No people yet set up");
    $people_dict = get_alias_dict($people);
    $current_roles = Role::get_roles_list($people_dict);
    $mlists = Mailing::get_mailings_list();
