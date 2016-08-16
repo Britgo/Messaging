@@ -187,7 +187,7 @@ print <<<EOT
 EOT;
 for ($row = 0;  $row < $rows;  $row++)  {
    print "<tr>\n";
-   for ($col < 0;  $col < $cols;  $col++)  {
+   for ($col = 0;  $col < $cols;  $col++)  {
       $n = $col * $rows + $row;
       print "<td>";
       if  ($n < $nrm)  {
@@ -214,7 +214,7 @@ print <<<EOT
 EOT;
 for ($row = 0;  $row < $rows;  $row++)  {
    print "<tr>\n";
-   for ($col < 0;  $col < $cols;  $col++)  {
+   for ($col = 0;  $col < $cols;  $col++)  {
       $n = $col * $rows + $row;
       print "<td>";
       if  ($n < $nrm)  {
