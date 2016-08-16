@@ -177,10 +177,7 @@ EOT;
 </table>
 <h3>Roles to go in list</h3>
 <p>Select the people who should go in this list by definition of the roles they hold.</p>
-<pre>
-<?php print_r($rolelookupalias); ?>
-</pre>
-<table>
+<table cellpadding="1" cellspacing="1">
 <?php
 $nrm = count($existing_roles);
 $cols = min(4,ceil($nrm/10));
@@ -204,7 +201,7 @@ EOT;
 </table>
 <h3>People to go in list</h3>
 <p>Select the people who should go in this list by name.</p>
-<table>
+<table cellpadding="1" cellspacing="1">
 <?php
 $nrm = count($people);
 $cols = min(4,ceil($nrm/10));
