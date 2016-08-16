@@ -177,6 +177,9 @@ EOT;
 </table>
 <h3>Roles to go in list</h3>
 <p>Select the people who should go in this list by definition of the roles they hold.</p>
+<pre>
+<?php print_r($rolelookupalias); ?>
+</pre>
 <table>
 <?php
 $nrm = count($existing_roles);
