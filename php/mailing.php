@@ -103,7 +103,7 @@ class Mailing {
       $result = array();
       while ($row = mysql_fetch_array($ret))
          if (isset($aliasdict[$row[0]]))
-            array_push($result, $alisdict[$row[0]]);
+            array_push($result, $aliasdict[$row[0]]);
       return  $result;
  	}
 	
