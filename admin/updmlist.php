@@ -169,7 +169,7 @@ else
 <td><b>Description</b></td>
 <?php
 print <<<EOT
-<td><input type="text" name="description" value="{$updmlist->text_descr()}" size="30"></td>
+<td><input type="text" name="description" value="{$updmlist->text_description()}" size="30"></td>
 
 EOT;
 ?>
