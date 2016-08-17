@@ -86,7 +86,7 @@ class Role {
 	   $qn = mysql_real_escape_string($this->Rolename);
 	   $qa = mysql_real_escape_string($this->Aliasname);
 	   if ($this->Ordering < 0)
-	     $this->Ordering = get_next_ordering();
+	     $this->Ordering = Role::get_next_ordering();
 	   $qo = $this->Ordering;
 	   $ret = mysql_query("INSERT INTO roles (role,mainalias,ordering) VALUES ('$qn','$qa',$qo)");
 	   if  (!$ret)  {
@@ -99,7 +99,7 @@ class Role {
 	public function update()  {
 	   $qa = mysql_real_escape_string($this->Aliasname);
       if ($this->Ordering < 0)
-	      $this->Ordering = get_next_ordering();
+	      $this->Ordering = Role::get_next_ordering();
 	   $qo = $this->Ordering;
 	   $ret = mysql_query("UPDATE roles set mainalias='$qa',ordering=$qo WHERE {$this->queryof()}");
 	   if  (!$ret)  {
