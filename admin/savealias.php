@@ -91,7 +91,7 @@ EOT;
 fwrite($outfile, $nextmsg);
 
 foreach ($people as $pers) {
-   $alts = $per->get_alt_aliases();
+   $alts = $pers->get_alt_aliases();
    $ma = strtolower($pers->Mainalias);
    foreach ($alts as $alt)  {
       $lalt = strtolower($alt);
