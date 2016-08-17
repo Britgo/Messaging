@@ -115,7 +115,7 @@ foreach ($roles as $role)  {
    $ln = strtolower($role->Rolename);
    $la = strtolower($role->Aliasname);
    $nextmsg = <<<EOT
-$ln: $ta
+$ln: $la
 
 EOT;
    fwrite($outfile, $nextmsg);
