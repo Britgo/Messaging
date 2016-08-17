@@ -65,6 +65,9 @@ abuse: root
 noc: root
 security: root
 
+teamcaptains:   |/var/www/onlineleague/captmail.pl
+unpaidcaptains: |/var/www/onlineleague/captmail.pl -u
+
 # Main aliases
 
 
