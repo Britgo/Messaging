@@ -39,8 +39,11 @@ catch  (Messerr $e)  {
    include '../php/wrongentry.php';
    exit(0);
 }
-   
-if (!($outfile = fopen("/tmp/aliasrewrite", 'x')))  {
+
+$temp_outfile = "/tmp/aliasrewrite";
+$Alias_dest = "/srv/britgo.org/configa/aliases";
+
+if (!($outfile = fopen($temp_outfile, 'x')))  {
    $mess = "output file exists";
    include '../php/wrongentry.php';
    exit(0);
@@ -149,6 +152,30 @@ EOT;
 
 fclose($outfile);
 
+try  {
+   $pid = pcntl_fork();
+   if  ($pid < 0)
+      throw new Messerr("Cannot fork");
+   if  ($pid == 0)  {
+      pcntl_exec("/srv/britgo.org/public/cgi-bin/cpalias", array($temp_outfile, $Alias_dest));
+      exit(255);
+   }
+   if  (pcntl_waitpid($pid, $status) < 0)
+      throw new Messerr("Run proc failed");
+   if  (!pcntl_wifexited($status))
+      throw new Messerr("Cp util crashed");
+   if  (pcntl_wexitstatus($status) != 0)
+      throw new Messerr("Cp program failed");
+}
+catch  (Messerr $e)  {
+   unlink($temp_outfile);
+   $mess = $e->getMessage();
+   include "../php/wrongentry.php";
+   exit(0);        
+}
+finally  {
+    unlink($temp_outfile);
+}
 $Title = "Alias file regenerated OK";
 include '../php/head.php';
 ?>
