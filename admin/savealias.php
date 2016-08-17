@@ -152,36 +152,6 @@ EOT;
 
 fclose($outfile);
 
-try  {
-   $pid = pcntl_fork();
-   if  ($pid < 0)
-      throw new Messerr("Cannot fork");
-   if  ($pid == 0)  {
-      pcntl_exec("/srv/britgo.org/public/cgi-bin/cpalias", array($temp_outfile, $Alias_dest));
-      exit(255);
-   }
-   if  (pcntl_waitpid($pid, $status) < 0)
-      throw new Messerr("Run proc failed");
-   if  (!pcntl_wifexited($status))
-      throw new Messerr("Cp util crashed");
-   if  (pcntl_wexitstatus($status) != 0)
-      throw new Messerr("Cp program failed");
-}
-catch  (Messerr $e)  {
-   unlink($temp_outfile);
-   $mess = $e->getMessage();
-   include "../php/wrongentry.php";
-   exit(0);        
-}
-finally  {
-    unlink($temp_outfile);
-}
-$Title = "Alias file regenerated OK";
-include '../php/head.php';
+$docloc = "/cgi-bin/copyafile?from=" . urlencode($temp_outfile) . '&to=' + urlencode($Alias_dest) . '&next=/admin/index.php';
+header("Location $docloc");
 ?>
-<body>
-<h1>Alias file regenerated OK</h1>
-<p>The alias file for the email system has been updated OK.</p>
-<p>Please <a href="/admin/index.php">Click here</a> to return to the admin page.</p>
-</body>
-</html>
