@@ -148,8 +148,8 @@ class Mailing {
          $e = mysql_error();
          throw new Messerr("Could not update mailings - $e");
       }
-      del_rmembs();
-      del_pmembs();
+      $this->del_rmembs();
+      $this->del_pmembs();
       return $this;
 	}
 

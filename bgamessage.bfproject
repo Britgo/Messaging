@@ -2,7 +2,7 @@ c2e.convert_special: 0
 e2c.convert_num: 0
 openfiles: /home/jmc/src/Websites/messaging/php/person.php:9714:1665:0:
 openfiles: /home/jmc/src/Websites/messaging/php/role.php:4070:4501:0:
-openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:4026:4836:0:
+openfiles: /home/jmc/src/Websites/messaging/php/mailing.php:4884:3879:1:
 openfiles: /home/jmc/src/Websites/messaging/admin/prefs.php:2415:1261:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/people.php:3901:0:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/newperson2.php:1110:0:0:
@@ -11,7 +11,7 @@ openfiles: /home/jmc/src/Websites/messaging/admin/updrole.php:5210:3447:0:
 openfiles: /home/jmc/src/Websites/messaging/webfn.js:0:0:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/mlists.php:2295:688:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/delmailing.php:1880:756:0:
-openfiles: /home/jmc/src/Websites/messaging/admin/updmlist.php:5500:5045:1:
+openfiles: /home/jmc/src/Websites/messaging/admin/updmlist.php:6348:5237:0:
 openfiles: /home/jmc/src/Websites/messaging/admin/updmlist2.php:1562:873:0:
 snr_recursion_level: 5
 convertcolumn_horizontally: 0
