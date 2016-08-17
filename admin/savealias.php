@@ -152,6 +152,6 @@ EOT;
 
 fclose($outfile);
 
-$docloc = "/cgi-bin/copyafile?from=" . urlencode($temp_outfile) . '&to=' + urlencode($Alias_dest) . '&next=/admin/index.php';
+$docloc = "https://message.britgo.org/cgi-bin/copyafile?from=" . urlencode($temp_outfile) . '&to=' + urlencode($Alias_dest) . '&next=/admin/index.php';
 header("Location $docloc");
 ?>
