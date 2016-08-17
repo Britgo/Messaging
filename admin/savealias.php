@@ -41,7 +41,7 @@ catch  (Messerr $e)  {
 }
 
 $temp_outfile = "/tmp/aliasrewrite";
-$Alias_dest = "/srv/britgo.org/configa/aliases";
+$Alias_dest = "/srv/britgo.org/config/aliases";
 
 if (!($outfile = fopen($temp_outfile, 'x')))  {
    $mess = "output file exists";
@@ -152,6 +152,6 @@ EOT;
 
 fclose($outfile);
 
-$docloc = 'https://message.britgo.org/cgi-bin/copyfile' . '?from=' . urlencode($temp_outfile) . '&to=' . urlencode($Alias_dest) . '&next=' . urlencode('/admin/index.php');
+$docloc = 'https://message.britgo.org/cgi-bin/copyfile' . '?from=' . urlencode($temp_outfile) . '&to=' . urlencode($Alias_dest);
 header("Location: $docloc");
 ?>

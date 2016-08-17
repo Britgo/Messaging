@@ -22,6 +22,10 @@
 include '../php/session.php';
 include '../php/messerr.php';
 
+$msg = "";
+if (isset($_GET['msg']))
+   $msg = " <b>" . $_GET['msg'] . "</b>";
+
 if ($logged_in)  {
    $Title = "Mailing System Administration";
    include '../php/head.php';
@@ -31,10 +35,10 @@ if ($logged_in)  {
 <p>Please select one of the following options.</p>
 <ol>
 <li><a href="/admin/prefs.php">Click here to update personal preferences.</a></li>
-<li><a href="/admin/people.php">Click here for the list of people to include in the system.</a>
-<li><a href="/admin/roles.php">Click here for the list of roles in the system.</a>
-<li><a href="/admin/mlists.php">Click here for the list of mailing lists in the system.</a>
-<li><a href="/admin/savealias.php">Save changes to mail system alias file.</li>
+<li><a href="/admin/people.php">Click here for the list of people to include in the system.</a></li>
+<li><a href="/admin/roles.php">Click here for the list of roles in the system.</a></li>
+<li><a href="/admin/mlists.php">Click here for the list of mailing lists in the system.</a></li>
+<li><a href="/admin/savealias.php">Save changes to mail system alias file.</a>$msg</li>
 <li><a href="/admin/logout.php">Log out</a>.</li>
 </ol>
 
