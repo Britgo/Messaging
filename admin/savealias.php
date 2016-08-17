@@ -46,7 +46,7 @@ if (!($outfile = fopen("/tmp/aliasrewrite", 'x')))  {
    exit(0);
 }
 
-$prefix = <<<EOT
+$nextmsg = <<<EOT
 # System Alias file
 # Standard aliases
 
@@ -67,13 +67,13 @@ security: root
 
 EOT;
 
-fwrite($outfile, $prefix);
+fwrite($outfile, $nextmsg);
 
 //  OK so now let's have the main aliases
 
 foreach ($people as $pers) {
    $ma = strtolower($pers->Mainalias);
-   $mextmsg = <<<EOT
+   $nextmsg = <<<EOT
 # {$pers->text_name()}
 $ma: {$pers->Email}
 
@@ -95,7 +95,7 @@ foreach ($people as $pers) {
    $ma = strtolower($pers->Mainalias);
    foreach ($alts as $alt)  {
       $lalt = strtolower($alt);
-      $mextmsg = <<<EOT
+      $nextmsg = <<<EOT
 $lalt: $ma
 
 EOT;
@@ -114,7 +114,7 @@ fwrite($outfile, $nextmsg);
 foreach ($roles as $role)  {
    $ln = strtolower($role->Rolename);
    $la = strtolower($role->Aliasname);
-   $mextmsg = <<<EOT
+   $nextmsg = <<<EOT
 $ln: $ta
 
 EOT;
