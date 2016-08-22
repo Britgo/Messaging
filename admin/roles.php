@@ -57,6 +57,7 @@ function okdel(name, url)  {
 <table cellpadding="3" cellspacing="5">
 <tr>
    <th>Position</th>
+   <th>Description</th>
    <th>Person</th>
    <th>Weighting</th>
    <th>Actions</th>
@@ -67,6 +68,7 @@ foreach ($current_roles as $role) {
    print <<<EOT
 <tr>
    <td>{$role->display_name()}</td>
+   <td>{$role->display_description()}</td>
    <td>{$role->display_person()}</td>
    <td>{$role->Ordering}</td>
    <td><a href="/admin/updrole.php?$roleurl" title="Update details this role">Update</a>

@@ -35,12 +35,13 @@ if (!isset($_POST['rolename']) || !isset($_POST['person']))  {
 $name = $_POST['rolename'];
 $person = urldecode($_POST['person']);
 $ordering = $_POST['ordering'];
+$descr = $_POST['description'];
 
 try {
    opendb();
    $mypers = new Person($person);
    $mypers->fetchdetsfromname();
-   $myrole = new Role($name);
+   $myrole = new Role($name, $descr);
    $myrole->Aliasname = $mypers->Mainalias;
    $myrole->Ordering = $ordering;
    $myrole->update();
@@ -57,7 +58,7 @@ include '../php/head.php';
 <h1>Mail role updated OK</h1>
 <?php
 print <<<EOT
-<p>The mail role for {$myrole->display_name()} as {$mypers->display_name()} has been updated successfully.</p>
+<p>The mail role for {$myrole->display_name()} described as {$myrole->display_description()} as {$mypers->display_name()} has been updated successfully.</p>
 
 EOT;
 ?>

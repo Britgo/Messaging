@@ -101,6 +101,10 @@ if (is_null($updating))
       alert(nam + " clashes with an existing name or alias");
       return false;
    }
+   if (!nonblank(fm.description.value))  {
+      alert("No description given");
+      return false;
+   }
 
 EOT;
 ?>       
@@ -146,6 +150,15 @@ EOT;
 else
    print "{$updrole->save_hidden()}";
 ?>
+<tr>
+   <td><b>Description</b></td>
+<?php
+print <<<EOT
+   <td><input type="text" name="description" value="{$updrole->display_description()}" size="30"></td>
+
+EOT;
+?>
+</tr>
 <tr>
 <td><b>Person</b></td>
 <td>

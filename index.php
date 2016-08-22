@@ -142,7 +142,7 @@ foreach ($roles as $rl)  {
    if ($rl->is_same($grole))
       $chk = ' selected="selected"';
    print <<<EOT
-   <option value="Roles:{$rl->formencode()}"$chk>{$rl->display_name()}</option>
+   <option value="Roles:{$rl->formencode()}"$chk>{$rl->display_description()}</option>
 
 EOT;
 }

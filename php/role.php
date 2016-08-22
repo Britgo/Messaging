@@ -22,12 +22,14 @@
 class Role {
 
    public $Rolename;
+   public $Description;
    public $Aliasname;
    public $Aliasperson;
    public $Ordering;
    
-   public function __construct($r = "") {
+   public function __construct($r = "", $d = "") {
 	   $this->Rolename = $r;
+	   $this->Description = $d;
 	   $this->Aliasname = "";
 	   $this->Aliasperson = null;
 	   $this->Ordering = -1;
@@ -61,7 +63,7 @@ class Role {
 	}
 	
 	public function fetchalias() {
-	   $ret = mysql_query("SELECT mainalias,ordering FROM roles WHERE {$this->queryof()}");
+	   $ret = mysql_query("SELECT description,mainalias,ordering FROM roles WHERE {$this->queryof()}");
 	   if  (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not fetch roles - $e");
@@ -69,6 +71,7 @@ class Role {
       if (mysql_num_rows($ret) == 0)
          throw new Messerr("Could not find role {$this->Name}");
       $row = mysql_fetch_assoc($ret);
+      $this->Description = $row['description'];
       $this->Aliasname = $row['mainalias'];
       $this->Ordering = $row['ordering'];
       return  $this;
@@ -85,10 +88,11 @@ class Role {
 	public function create()  {
 	   $qn = mysql_real_escape_string($this->Rolename);
 	   $qa = mysql_real_escape_string($this->Aliasname);
+	   $qd = mysql_real_escape_string($this->Description);
 	   if ($this->Ordering < 0)
 	     $this->Ordering = Role::get_next_ordering();
 	   $qo = $this->Ordering;
-	   $ret = mysql_query("INSERT INTO roles (role,mainalias,ordering) VALUES ('$qn','$qa',$qo)");
+	   $ret = mysql_query("INSERT INTO roles (role,mainalias,ordering,description) VALUES ('$qn','$qa',$qo,'$qd')");
 	   if  (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not create roles - $e");
@@ -98,10 +102,11 @@ class Role {
 	
 	public function update()  {
 	   $qa = mysql_real_escape_string($this->Aliasname);
+	   $qd = mysql_real_escape_string($this->Description);
       if ($this->Ordering < 0)
 	      $this->Ordering = Role::get_next_ordering();
 	   $qo = $this->Ordering;
-	   $ret = mysql_query("UPDATE roles set mainalias='$qa',ordering=$qo WHERE {$this->queryof()}");
+	   $ret = mysql_query("UPDATE roles set mainalias='$qa',ordering=$qo,description='$qd' WHERE {$this->queryof()}");
 	   if  (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not update roles - $e");
@@ -132,6 +137,10 @@ class Role {
  		return  htmlspecialchars($this->Rolename);
  	}
  	
+ 	public function display_description() {
+ 		return  htmlspecialchars($this->Description);
+ 	}
+ 	
  	public function display_person() {
       if (is_null($this->Aliasperson))
          return "Person not loaded for {$this->display_name()}";
@@ -143,7 +152,7 @@ class Role {
  	}
 	
 	public static function get_roles_list($aliasdict = null) {
-	   $ret = mysql_query("SELECT role,mainalias,ordering FROM roles ORDER BY ordering");
+	   $ret = mysql_query("SELECT role,mainalias,ordering,description FROM roles ORDER BY ordering");
 	   if  (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not fetch roles - $e");
@@ -153,6 +162,7 @@ class Role {
          $r = new Role($row['role']);
          $r->Aliasname = $row['mainalias'];
          $r->Ordering = $row['ordering'];
+         $r->Description = $row['description'];
          array_push($result, $r);
       }
       if  (!is_null($aliasdict))  {
