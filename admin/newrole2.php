@@ -58,7 +58,7 @@ include '../php/head.php';
 <h1>Mail role created OK</h1>
 <?php
 print <<<EOT
-<p>The mail role for {$myrole->display_name()} described as {$myrole->display_descripton()} as {$mypers->display_name()} has been created successfully.</p>
+<p>The mail role for {$myrole->display_name()} described as {$myrole->display_description()} as {$mypers->display_name()} has been created successfully.</p>
 
 EOT;
 ?>
