@@ -39,7 +39,7 @@ class Mailing {
 	}
 	
 	public function is_same($rl) {
-		return strcasecmp($this->Description, $rl->Description) == 0;
+		return strcasecmp($this->Name, $rl->Name) == 0;
 	}
 	
 	public function urlof() {
