@@ -59,8 +59,7 @@ if (!$gperson && isset($_GET['role']))  {
 
 if (!$grole && isset($_GET['mailing']))  {
    try  {
-      $gmailing = new Mailing();    // Don't do the whole lot because we only use the description
-      $gmailing->Description = $_GET['mailing'];
+      $gmailing = new Mailing($_GET['mailing']);    // Don't do the whole lot because we only use the name
    }
    catch (Messerr $e)  {
       $gmailing = null;
