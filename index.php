@@ -122,19 +122,7 @@ function checkform()
    <td><b>To</b></td>
    <td><select name="recip">
    <option value="">Select recipient</option>
-<?php
-$people = get_person_list();
-foreach ($people as $pers) {
-   $chk = "";
-   if ($pers->is_same($gperson))
-      $chk = ' selected="selected"';
-   print <<<EOT
-   <option value="Pers:{$pers->formencode()}"$chk>{$pers->display_name()}</option>
-
-EOT;
-}
-?>
-<option disabled>------</option>
+   <option disabled>------</option>
 <?php
 $roles = Role::get_roles_list();
 foreach ($roles as $rl)  {
@@ -143,6 +131,19 @@ foreach ($roles as $rl)  {
       $chk = ' selected="selected"';
    print <<<EOT
    <option value="Roles:{$rl->formencode()}"$chk>{$rl->display_description()}</option>
+
+EOT;
+}
+?>
+<option disabled>------</option>
+<?php
+$people = get_person_list();        // Default doesn't include people who don't want to be here
+foreach ($people as $pers) {
+   $chk = "";
+   if ($pers->is_same($gperson))
+      $chk = ' selected="selected"';
+   print <<<EOT
+   <option value="Pers:{$pers->formencode()}"$chk>{$pers->display_name()}</option>
 
 EOT;
 }
