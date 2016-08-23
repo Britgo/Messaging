@@ -60,8 +60,9 @@ try {
    }
 }
 catch (Messerr $e)  {
-   $mess = "Update error " . $e->getMessage();
-   include '../php/wrongentry.php';
+   $Title = $e->Header;
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
 include '../php/head.php';

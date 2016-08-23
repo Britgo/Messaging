@@ -22,7 +22,6 @@
 include '../php/session.php';
 include '../php/messerr.php';
 include '../php/opendb.php';
-include '../php/session.php';
 include '../php/checklogged.php';
 include '../php/person.php';
 include '../php/role.php';
@@ -43,8 +42,9 @@ try {
    $cpw = htmlspecialchars($mypers->get_passwd());
 }
 catch (Messerr $e) {
-   $mess = "Open database: " . $e->getMessage();
-   include '../php/wrongentry.php';
+   $Title = $e->Header;
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
 

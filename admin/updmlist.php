@@ -63,8 +63,9 @@ try {
    }
 }
 catch (Messerr $e) {
-   $mess = "Open database: " . $e->getMessage();
-   include '../php/wrongentry.php';
+   $Title = $e->Header;
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
 

@@ -31,14 +31,15 @@ try {
    opendb();
    $people = get_person_list(true);
    if  (count($people) == 0)
-      throw new Messerr("No people yet set up");
+      throw new Messerr("No people yet set up", "Not yet set up");
    $people_dict = get_alias_dict($people);
    $current_roles = Role::get_roles_list($people_dict);
    $mlists = Mailing::get_mailings_list();
 }
 catch (Messerr $e) {
-   $mess = "Open database: " . $e->getMessage();
-   include '../php/wrongentry.php';
+   $Title = $e->Header;
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
 

@@ -22,7 +22,6 @@
 include '../php/session.php';
 include '../php/messerr.php';
 include '../php/opendb.php';
-include '../php/session.php';
 include '../php/checklogged.php';
 include '../php/person.php';
 include '../php/role.php';
@@ -43,8 +42,9 @@ try {
    $mypers->delete_admin();
 }
 catch (Messerr $e)  {
-   $mess = "Unset error " . $e->getMessage();
-   include '../php/wrongentry.php';
+   $Title = "Unset error";
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
 $Title = "Unset admin OK";

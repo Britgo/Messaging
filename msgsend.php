@@ -45,15 +45,17 @@ try {
    opendb();
 }
 catch (Messerr $e) {
-   $mess = "Open database: " . $e->getMessage();
-   include 'php/wrongentry.php';
+   $Title = $e->Header;
+   $mess = $e->getMessage();
+   include 'php/generror.php';
    exit(0);
 }
 
 $rpieces = split(':', $recip, 2);
 if (count($rpieces) != 2)  {
+   $Title = "Argument error";
    $mess = "Cannot parse $recip";
-   include 'php/wrongentry.php';
+   include 'php/generror.php';
    exit(0);
 }
 
@@ -62,10 +64,11 @@ $rto = urldecode($rpieces[1]);
 
 switch  ($rtype)  {
    default:
+      $Title = "Argument error";
       $mess = "Unknown recipient type $rtype";
-      include 'php/wrongentry.php';
+      include 'php/generror.php';
       exit(0);
-   case  'Pers':
+   case 'Pers':
       $capac = "";
       $dest = $rto;
       try  {
@@ -74,11 +77,12 @@ switch  ($rtype)  {
          break;
       }
       catch  (Messerr $e)  {
-         $mess = "Error finding person $rto - {$e->getMessage()}";
-         include 'php/wrongentry.php';
+         $Title = "Search error finding person $rto";
+         $mess = $e->getMessage();
+         include 'php/generror.php';
          exit(0);
       }
-   case  'Roles':
+   case 'Roles':
       $capac = "In your capacity as BGA $rto";
       $dest = "The BGA $rto";
       try  {
@@ -87,11 +91,12 @@ switch  ($rtype)  {
          break;    
       }
       catch  (Messerr $e)  {
-         $mess = "Error finding role - {$e->getMessage()}";
-         include 'php/wrongentry.php';
+         $Title = "Error finding role $rto";
+         $mess =  $e->getMessage();
+         include 'php/generror.php';
          exit(0);
       }
-   case  'Mailings':
+   case 'Mailings':
       $sending_to = "$rto@britgo.org";
       try  {
          $mto = new Mailing($rto);
@@ -101,8 +106,9 @@ switch  ($rtype)  {
          break;
       }
       catch  (Messerr $e)  {
-         $mess = "Error finding mailing list - {$e->getMessage()}";
-         include 'php/wrongentry.php';
+         $Title = "Error finding mailing list $rto";
+         $mess = $e->getMessage();
+         include 'php/generror.php';
          exit(0);
       }
 }

@@ -35,8 +35,9 @@ try {
    $mailings = Mailing::get_mailings_list();
 }
 catch  (Messerr $e)  {
-   $mess = "Could not open databse - $e";
-   include '../php/wrongentry.php';
+   $Title = $e->Header;
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
 
@@ -44,8 +45,9 @@ $temp_outfile = "/tmp/aliasrewrite";
 $Alias_dest = "/srv/britgo.org/config/aliases";
 
 if (!($outfile = fopen($temp_outfile, 'x')))  {
+   $Title = "Clash on temp file";
    $mess = "output file exists";
-   include '../php/wrongentry.php';
+   include '../php/generror.php';
    exit(0);
 }
 

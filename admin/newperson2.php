@@ -28,7 +28,7 @@ include '../php/role.php';
 include '../php/mailing.php';
 
 if (!isset($_POST['name']) || !isset($_POST['malias']))  {
-   $ness = "Not from form???";
+   $mess = "Not from form???";
    include '../php/wrongentry.php';
    exit(0);
 }
@@ -61,8 +61,9 @@ try {
    $mypers->replace_aliases($naliases);
 }
 catch (Messerr $e)  {
-   $mess = "Update error " . $e->getMessage();
-   include '../php/wrongentry.php';
+   $mess = "Update error";
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
 $Title = "Mailing entry created OK";

@@ -47,8 +47,9 @@ try {
    $myrole->create();
 }
 catch (Messerr $e)  {
-   $mess = "Create error " . $e->getMessage();
-   include '../php/wrongentry.php';
+   $Title = $e->Header;
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
 $Title = "Mailing role created OK";

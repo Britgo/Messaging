@@ -22,7 +22,6 @@
 include '../php/session.php';
 include '../php/messerr.php';
 include '../php/opendb.php';
-include '../php/session.php';
 include '../php/checklogged.php';
 include '../php/person.php';
 include '../php/role.php';
@@ -30,7 +29,7 @@ include '../php/mailing.php';
 
 if  (!isset($_GET['role']))  {
    $mess = "No role given";
-   include '../php/wrongentry';
+   include '../php/wrongentry.php';
    exit(0);
 }
 
@@ -42,8 +41,9 @@ try {
    $myrole->fetchalias()->delete();
 }
 catch (Messerr $e)  {
-   $mess = "Delete error " . $e->getMessage();
-   include '../php/wrongentry.php';
+   $Title = "Delete error, role $delrole";
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
 $Title = "Deleted OK";

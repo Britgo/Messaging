@@ -22,7 +22,6 @@
 include '../php/session.php';
 include '../php/messerr.php';
 include '../php/opendb.php';
-include '../php/session.php';
 include '../php/checklogged.php';
 include '../php/person.php';
 include '../php/role.php';
@@ -63,8 +62,9 @@ try {
    }
 }
 catch (Messerr $e)  {
-   $mess = "Update error " . $e->getMessage();
-   include '../php/wrongentry.php';
+   $Title = "Update error";
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
 if  ($Newpw)  {

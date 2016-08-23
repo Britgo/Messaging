@@ -22,7 +22,6 @@
 include '../php/session.php';
 include '../php/messerr.php';
 include '../php/opendb.php';
-include '../php/session.php';
 include '../php/checklogged.php';
 include '../php/person.php';
 include '../php/role.php';
@@ -44,10 +43,16 @@ try {
    $mypers->set_admin($passw);
 }
 catch (Messerr $e)  {
-   $mess = "Set admin error " . $e->getMessage();
-   include '../php/wrongentry.php';
+   $Title = "Set admin error $admalias";
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
+$em = $mypers->Email;
+$fh = popen("REPLYTO=please_do_not_reply@britgo.org mail -s 'Message system account set up' $em", "w");
+fwrite($fh, "Your userid is $admalias.\n");
+fwrite($fh, "Your password is $passw\n");
+pclose($fh);
 $Title = "Set admin OK";
 include '../php/head.php';
 ?>

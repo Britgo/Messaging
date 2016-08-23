@@ -30,8 +30,9 @@ try {
 	opendb();
 }
 catch (Messerr $e) {
+   $Title = $e->Header;
    $mess = $e->getMessage();
-   include '../php/wrongentry.php';
+   include '../php/generror.php';
    exit(0);
 }
 
@@ -41,8 +42,9 @@ $ret = mysql_query("select mainalias,password from logins where mainalias='$quse
 // Check user known
 
 if (!$ret || mysql_num_rows($ret) == 0)  {
-	$mess = "Unknown User";
-	include '../php/wrongentry.php'; 
+	$Title = "Unknown User";
+	$mess = $e->getMessage();
+	include '../php/generror.php'; 
 	exit(0);
 }
 
@@ -50,7 +52,7 @@ if (!$ret || mysql_num_rows($ret) == 0)  {
 
 if (!($row = mysql_fetch_assoc($ret)) || $passwd != $row['password'])  {
 	$Title = 'Incorrect password';
-	include 'php/head.php';
+	include '../php/head.php';
 	print <<<EOT
 <body>
 <h1>Incorrect Password</h1>
@@ -69,8 +71,9 @@ try {
    $username = $upers->text_name();   
 }
 catch (Messerr $e)  {
-   $mess = "Unknown User - {$e->getMessage()}";
-   include '../php/wrongentry.php';
+   $Title = "Unknown user";
+   $mess = $e->getMessage();
+   include '../php/generror.php';
    exit(0);
 }
 

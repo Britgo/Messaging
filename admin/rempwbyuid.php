@@ -38,8 +38,9 @@ try {
 	$pers->fetchdetsfromalias();
 }
 catch (Messerr $e) {
+   $Title = $e->Header;
 	$mess = $e->getMessage();
-	include 'php/wrongentry.php';
+	include '../php/generror.php';
 	exit(0);
 }
 
