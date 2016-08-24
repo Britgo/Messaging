@@ -175,7 +175,9 @@ EOT;
    <td><b>Send me a copy of this message</b></td>
 </tr>
 <?php include 'php/sumchallenge.php' ?>
-<tr><td align="center"><input type="submit" name="sub" value="Submit"></td></tr>
+<tr><td align="center"><input type="submit" name="sub" value="Submit"></td>
+<td><a href="admin/index.php" class="admin">Admin</a></td>
+</tr>
 </table>
 </form>
 </body>

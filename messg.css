@@ -71,6 +71,19 @@
 	background: #FFFFD3;
 }
 
+a.admin.active {
+	color: #2EDC49;
+	font-size: 8pt;
+}
+a.admin.link {
+	color: #2EDC49;
+	font-size: 8pt;
+}
+a.admin.visited {
+	color: #89E697;
+	font-size: 8pt;
+}
+
 a.memb:active {
 	color: #D53B3B;
 }
