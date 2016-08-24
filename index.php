@@ -176,7 +176,7 @@ EOT;
 </tr>
 <?php include 'php/sumchallenge.php' ?>
 <tr><td align="center"><input type="submit" name="sub" value="Submit"></td>
-<td align="right"><a href="admin/index.php"><img src="images/lock.png" width="52" height="74" alt="Lock"></a></td>
+<td align="right"><a href="admin/index.php"><img src="images/lock.png" width="18" height="26" alt="Lock"></a></td>
 </tr>
 </table>
 </form>
