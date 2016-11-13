@@ -1,7 +1,7 @@
 c2e.convert_special: 0
 e2c.convert_num: 0
-openfiles: /home/jmc/src/Websites/messaging/index.php:5056:3694:0:
-openfiles: /home/jmc/src/Websites/messaging/messg.css:1195:565:1:
+openfiles: /home/jmc/src/Websites/messaging/index.php:5143:3694:1:
+openfiles: /home/jmc/src/Websites/messaging/messg.css:1195:5206:0:
 snr_recursion_level: 5
 convertcolumn_horizontally: 0
 adv_open_matchname: 0
@@ -73,8 +73,8 @@ recent_files: file:///home/jmc/src/Websites/messaging/admin/prefs.php
 recent_files: file:///home/jmc/src/Websites/messaging/admin/giveadm.php
 recent_files: file:///home/jmc/src/Websites/messaging/admin/rempwbyuid.php
 recent_files: file:///home/jmc/src/Websites/messaging/php/person.php
-recent_files: file:///home/jmc/src/Websites/messaging/index.php
 recent_files: file:///home/jmc/src/Websites/messaging/messg.css
+recent_files: file:///home/jmc/src/Websites/messaging/index.php
 snr_replacetype: 0
 savedir: file:///home/jmc/src/Websites/messaging
 spell_check_default: 1

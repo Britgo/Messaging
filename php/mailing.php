@@ -197,7 +197,7 @@ class Mailing {
  	}
 	
 	public static function get_mailings_list() {
-	   $ret = mysql_query("SELECT name,description FROM mailings ORDER BY description");
+	   $ret = mysql_query("SELECT name,description FROM mailings ORDER BY name");
 	   if  (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not fetch mailings - $e");
@@ -213,7 +213,7 @@ class Mailing {
 	// Just get names for checking against
 	
 	public static function get_mailings_names() {
-      $ret = mysql_query("SELECT name FROM mailings");
+      $ret = mysql_query("SELECT name FROM mailings ORDER BY name");
 	   if  (!$ret)  {
          $e = mysql_error();
          throw new Messerr("Could not fetch mailings - $e");
