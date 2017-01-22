@@ -35,7 +35,7 @@ function opendb()
 		throw  new  Messerr("Cannot get DB credentials, error was $ecode", "DB credentials error");
 	}
 	
-	if  (!mysql_connect($hostname, $username, $password)  ||  !mysql_select_db($dbname))  {
+	if  (!mysql_connect("localhost", $dbcred->Username, $dbcred->Password)  ||  !mysql_select_db($dbcred->Databasename))  {
 		$ecode = mysql_error();
 		throw  new  Messerr("Cannot open database, error was $ecode", "Database error");
 	}
